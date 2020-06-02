@@ -1,0 +1,39 @@
+{
+  "name": "el-bot-docs",
+  "version": "0.0.1",
+  "description": "Docs for el-bot.",
+  "main": "index.js",
+  "repository": "https://github.com/ElpsyCN/el-bot-docs.git",
+  "homepage": "https://docs.bot.elpsy.cn",
+  "bugs": {
+    "url": "https://github.com/ElpsyCN/el-bot-docs/issues"
+  },
+  "author": "ElpsyCN",
+  "contributors": [
+    "YunYouJun <me@yunyoujun.cn>",
+    "ADD-SP <me@addesp.com>"
+  ],
+  "keywords": [
+    "bot",
+    "qq",
+    "mirai",
+    "elpsy",
+    "docs"
+  ],
+  "scripts": {
+    "dev": "yarn docs:dev",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.5.0",
+    "@vuepress/plugin-google-analytics": "^1.5.0",
+    "@vuepress/plugin-pwa": "^1.5.0",
+    "vuepress": "^1.5.0",
+    "watchpack": "1.6.1"
+  },
+  "resolutions": {
+    "watchpack": "1.6.1"
+  }
+}
