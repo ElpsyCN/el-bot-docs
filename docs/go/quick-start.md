@@ -1,3 +1,7 @@
+---
+sidebar: auto
+---
+
 # 快速开始
 
 ## 安装 Golang
@@ -5,6 +9,7 @@
 ## 安装 JRE
 
 若使用图形界面, 至少需要 JRE 11 并带有 JavaFX 11, 且不推荐使用 12 或更高版本.
+
 若使用命令行或终端, 至少需要 JRE 8.
 
 ## 下载项目
@@ -23,7 +28,7 @@ sh install.sh
 
 ### On Windows
 
-下载[mirai-console-wrapper-1.2.0-all](https://github.com/mamoe/mirai-console-wrapper/releases/download/1.2.0/mirai-console-wrapper-1.2.0-all.jar)到项目根目录
+下载[mirai-console-wrapper-1.3.0-all](https://github.com/mamoe/mirai-console-wrapper/releases/download/1.3.0/mirai-console-wrapper-1.3.0-all.jar)到项目根目录
 
 下载[mirai-api-http-v1.7.1](https://github.com/mamoe/mirai-api-http/releases/download/v1.7.1/mirai-api-http-v1.7.1.jar)到`plugins/`
 
@@ -82,5 +87,31 @@ sh start-el-bot.sh 机器人QQ号 default
 + 自定义配置目录：不使用自定义配置的话则为`default`。机器人支持读取包含自定义配置的目录，目录路径相对于`config`。假如我在`config/custom`下创建了若干的自定义配置文件，则此参数为`custom`。本参数将作为 bat 脚本的第二个参数。
 
 ## 查看效果
+<!-- https://s1.ax1x.com/2020/06/03/tdho7V.jpg -->
+<!-- https://s1.ax1x.com/2020/06/03/td4S76.jpg -->
 
-此处会放一些聊天记录的图片。
++ 当群内发生下列事件的时候会机器人会有对应的回复
+    + 成员被禁言/解除禁言
+    + 全员禁言/解除全员禁言
+    + 新成员入群
+    + 成员被移除
+    + 成员自行退群
+
+<chat-panel title="聊天记录（好友聊天或群聊）">
+  <chat-message :id="910426929" nickname="云游君" >echo 欢迎使用 el-bot</chat-message>
+  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">欢迎使用 el-bot</chat-message>
+</chat-panel>
+
+<chat-panel title="聊天记录（好友聊天或群聊）">
+  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">hello</chat-message>
+  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">Hello World!</chat-message>
+  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">你好</chat-message>
+  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">Hello World!</chat-message>
+</chat-panel>
+
+<chat-panel title="聊天记录（群聊）">
+  <chat-message :id="910426929" nickname="云游君" >say</chat-message>
+  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">[一段随机的句子]</chat-message>
+  <chat-message :id="910426929" nickname="云游君" >jsay</chat-message>
+  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">[一段随机的句子]——[出处]</chat-message>
+</chat-panel>
