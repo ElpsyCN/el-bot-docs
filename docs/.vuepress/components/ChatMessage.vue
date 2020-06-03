@@ -44,6 +44,7 @@ export default {
   },
   mounted() {
     this.handleScroll();
+    addEventListener("scroll", this.handleScroll);
   },
   methods: {
     appear() {
