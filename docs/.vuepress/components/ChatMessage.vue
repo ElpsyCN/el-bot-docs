@@ -1,7 +1,12 @@
 IntelliJ IDEAIntelliJ IDEA
 <template>
   <div class="chat-message" :class="{ show }">
-    <chat-avatar :id="id"></chat-avatar>
+    <chat-avatar
+      :id="id"
+      :avatar="avatar"
+      :nickname="nickname"
+      :color="color"
+    ></chat-avatar>
     <div class="message-box">
       <div class="nickname">{{ nickname }}</div>
       <div class="message">
@@ -14,8 +19,10 @@ IntelliJ IDEAIntelliJ IDEA
 <script>
 export default {
   props: {
+    avatar: String,
     id: Number,
     nickname: String,
+    color: String,
   },
   data: () => ({
     show: false,

@@ -1,13 +1,26 @@
 <template>
-  <img class="avatar" :src="avatar" />
+  <div style="display: inline-block;">
+    <img
+      v-if="avatar || id"
+      class="avatar"
+      :src="avatar || getAvatarById(this.id, this.type, this.size)"
+    />
+    <div v-else class="avatar" :style="`background-color:${color}`">
+      {{ nickname[0] }}
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
+    avatar: {
+      type: String,
+      default: "",
+    },
     id: {
       type: Number,
-      default: 910426929,
+      default: null,
     },
     type: {
       type: String,
@@ -17,10 +30,13 @@ export default {
       type: Number,
       default: 100,
     },
-  },
-  computed: {
-    avatar() {
-      return this.getAvatarById(this.id, this.type, this.size);
+    nickname: {
+      type: String,
+      default: "",
+    },
+    color: {
+      type: String,
+      default: "steelblue",
     },
   },
   methods: {
@@ -39,9 +55,13 @@ export default {
 
 <style>
 .avatar {
+  display: inline-flex;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
   line-height: 0;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 </style>
