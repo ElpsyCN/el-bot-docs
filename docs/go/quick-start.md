@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # 快速开始
 
 ## 安装 Golang
@@ -70,8 +66,8 @@ sh start-console.sh
 sh start-el-bot.sh 机器人QQ号 default
 ```
 
-+ 机器人QQ号：为在`启动 mirai-console`这步中登录的QQ号，将作为 shell 脚本的第一个参数。
-+ 自定义配置目录：不使用自定义配置的话则为`default`。机器人支持读取包含自定义配置的目录，目录路径相对于`config`。假如我在`config/custom`下创建了若干的自定义配置文件，则此参数为`custom`。本参数将作为 shell 脚本的第二个参数。
+- 机器人 QQ 号：为在`启动 mirai-console`这步中登录的 QQ 号，将作为 shell 脚本的第一个参数。
+- 自定义配置目录：不使用自定义配置的话则为`default`。机器人支持读取包含自定义配置的目录，目录路径相对于`config`。假如我在`config/custom`下创建了若干的自定义配置文件，则此参数为`custom`。本参数将作为 shell 脚本的第二个参数。
 
 ### On Windows
 
@@ -83,19 +79,20 @@ sh start-el-bot.sh 机器人QQ号 default
 ./start-el-bot-amd64.bat 机器人QQ号 default
 ```
 
-+ 机器人QQ号：为在`启动 mirai-console`这步中登录的QQ号，将作为 bat 脚本的第一个参数。
-+ 自定义配置目录：不使用自定义配置的话则为`default`。机器人支持读取包含自定义配置的目录，目录路径相对于`config`。假如我在`config/custom`下创建了若干的自定义配置文件，则此参数为`custom`。本参数将作为 bat 脚本的第二个参数。
+- 机器人 QQ 号：为在`启动 mirai-console`这步中登录的 QQ 号，将作为 bat 脚本的第一个参数。
+- 自定义配置目录：不使用自定义配置的话则为`default`。机器人支持读取包含自定义配置的目录，目录路径相对于`config`。假如我在`config/custom`下创建了若干的自定义配置文件，则此参数为`custom`。本参数将作为 bat 脚本的第二个参数。
 
 ## 查看效果
+
 <!-- https://s1.ax1x.com/2020/06/03/tdho7V.jpg -->
 <!-- https://s1.ax1x.com/2020/06/03/td4S76.jpg -->
 
-+ 当群内发生下列事件的时候会机器人会有对应的回复
-    + 成员被禁言/解除禁言
-    + 全员禁言/解除全员禁言
-    + 新成员入群
-    + 成员被移除
-    + 成员自行退群
+- 当群内发生下列事件的时候会机器人会有对应的回复
+  - 成员被禁言/解除禁言
+  - 全员禁言/解除全员禁言
+  - 新成员入群
+  - 成员被移除
+  - 成员自行退群
 
 <chat-panel title="聊天记录（好友聊天或群聊）">
   <chat-message :id="910426929" nickname="云游君" >echo 欢迎使用 el-bot</chat-message>
