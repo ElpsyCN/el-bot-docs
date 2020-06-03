@@ -1,3 +1,5 @@
 # el-bot-go
 
-## 使用
+## 快速开始
+
+[快速开始](quick-start.md)
