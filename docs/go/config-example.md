@@ -192,7 +192,7 @@ group:
 ```cpp
 if 消息来源 == 群聊 {
     if 接收到的文本消息 == "我要图" {
-        image = GetFromFile(path);
+        image = GetImageFromFile(path);
         回复图片消息给消息来源(image);
     }
 }
@@ -230,7 +230,7 @@ group:
 ```cpp
 if 消息来源 == 群聊 {
     if 接收到的文本消息 == "我要图" {
-        image = GetFromeUrl(url);
+        image = GetImageFromeUrl(url);
         回复图片消息给消息来源(image);
     }
 }
