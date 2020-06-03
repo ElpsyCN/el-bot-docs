@@ -347,14 +347,12 @@ global:
 ### 等价伪码
 
 ```js
-if 消息来源 == 群聊{
+if 消息来源 == 群聊 {
     for each groupID in sender.group {
-      if 群号 == groupID {
-        if 接收到的文本消息 == "say" {
+        if 群号 == groupID  && 接收到的文本消息 == "say"{
             urlText = Http.Get(url);
             回复文本消息给消息来源(urlText);
         }
-      }
     }
 }
 ```
@@ -389,13 +387,11 @@ global:
 ### 等价伪码
 
 ```js
-if 消息来源 == 好友聊天 && 发送者QQ == 你的QQ号 {
+if 消息来源 == 好友聊天 {
     for each userID in sender.user {
-      if 发送者QQ == userID {
-        if 接收到的文本消息 == "替我打招呼" {
-          回复文本消息给指定的接收者("你好啊");
+        if 发送者QQ == userID && 接收到的文本消息 == "替我打招呼" {
+            回复文本消息给指定的接收者("你好啊");
         }
-      }
     }
 }
 ```
