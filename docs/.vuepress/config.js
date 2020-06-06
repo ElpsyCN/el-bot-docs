@@ -47,7 +47,7 @@ module.exports = {
       },
     ],
     sidebar: {
-      "/go/": ["quick-start", "config-example", "config-syntax", "pre-def-var"],
+      "/go/": ["quick-start", "config-example", "config-syntax", "pre-def-var", "other-feature"],
       "/": ["guide", "go/", "about"],
     },
   },
