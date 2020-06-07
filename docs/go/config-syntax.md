@@ -41,6 +41,7 @@ do:
 
 ```yml
 message:
+  at
   quote:
   control: 
   sender:
@@ -48,13 +49,14 @@ message:
   detail:
 ```
 
-| 关键字   | 必要 | 类型          | 接受消息时的作用 | 发送消息时的作用                              |
-| -------- | ---- | ------------- | ---------------- | --------------------------------------------- |
-| sender   | 否   | Object        | 消息的发送者     | 无                                            |
-| receiver | 否   | Object        | 无               | 消息的接收者                                  |
-| detail   | 否   | Array[Object] | 消息详情         | 消息详情                                      |
-| quote    | 否   | Bool          | 无               | 表示是否引用本次接收到的消息，默认为`false`。 |
-| control  | 否   | Array[Object] | 无               | 表示机器人进行的某些控制                      |
+| 关键字   | 必要 | 类型          | 接受消息时的作用                 | 发送消息时的作用                              |
+| -------- | ---- | ------------- | -------------------------------- | --------------------------------------------- |
+| sender   | 否   | Object        | 消息的发送者                     | 无                                            |
+| receiver | 否   | Object        | 无                               | 消息的接收者                                  |
+| detail   | 否   | Array[Object] | 消息详情                         | 消息详情                                      |
+| quote    | 否   | Bool          | 无                               | 表示是否引用本次接收到的消息，默认为`false`。 |
+| at       | 否   | Bool          | 当为`true`时本条配置才有可能生效 | 无                                            |
+| control  | 否   | Array[Object] | 无                               | 表示机器人进行的某些控制                      |
 
 ### detail
 
@@ -163,15 +165,17 @@ control:
 
 #### 控制类型
 
-| 关键字  | 作用（接收） | 作用（发送）          | 附属关键字 | 附属关键字类型       | 附属关键字的作用（接收） | 附属关键字的作用（发送） |
-| ------- | ------------ | --------------------- | ---------- | -------------------- | ------------------------ | ------------------------ |
-| Suspend | 无           | 暂停机器人            | 无         | 无                   | 无                       | 无                       |
-| Active  | 无           | 取消暂停机器人        | 无         | 无                   | 无                       | 无                       |
-| Destory | 无           | 退出机器人            | 无         | 无                   | 无                       | 无                       |
-| Block   | 无           | 忽略群/好友的消息     | group      | Array[Number/String] | 无                       | 被忽略的群号             |
-|         |              |                       | user       | Array[Number/String] | 无                       | 被忽略的 QQ 号           |
-| Unblock | 无           | 取消忽略群/好友的消息 | group      | Array[Number/String] | 无                       | 取消忽略的群号           |
-|         |              |                       | user       | Array[Number/String] | 无                       | 取消忽略的 QQ 号         |
+| 关键字           | 作用（接收） | 作用（发送）          | 附属关键字 | 附属关键字类型       | 附属关键字的作用（接收） | 附属关键字的作用（发送）             |
+| ---------------- | ------------ | --------------------- | ---------- | -------------------- | ------------------------ | ------------------------------------ |
+| Suspend          | 无           | 暂停机器人            | 无         | 无                   | 无                       | 无                                   |
+| Active           | 无           | 取消暂停机器人        | 无         | 无                   | 无                       | 无                                   |
+| Destory          | 无           | 退出机器人            | 无         | 无                   | 无                       | 无                                   |
+| Block            | 无           | 忽略群/好友的消息     | group      | Array[Number/String] | 无                       | 被忽略的群号                         |
+|                  |              |                       | user       | Array[Number/String] | 无                       | 被忽略的 QQ 号                       |
+| Unblock          | 无           | 取消忽略群/好友的消息 | group      | Array[Number/String] | 无                       | 取消忽略的群号                       |
+|                  |              |                       | user       | Array[Number/String] | 无                       | 取消忽略的 QQ 号                     |
+| EnterConfig      | 无           | 切换到指定的配置      | folder     | String               | 无                       | 配置所在目录相对于目录`config`的路径 |
+| BackToPrevConfig | 无           | 回到上一个配置        | 无         | 无                   | 无                       | 无                                   |
 
 
 
@@ -303,13 +307,11 @@ crontab:
 transfer:
   - listen:
       group:
-      user:
     target:
       grpup:
       user:
   - listen:
       group:
-      user:
     target:
       group:
       user:
@@ -320,22 +322,19 @@ transfer:
 | transfer | 是       | Array[Object]        | 该关键字下的配置为消息转发配置 |
 | listen   | 是       | Object               | 表示监听哪些群和好友的消息     |
 | group    | 否       | Array[Number/String] | 表示被监听/接收消息的若干个群  |
-| user     | 否       | Array[Number/String] | 表示被监听/接收消息的若干好友  |
+| user     | 否       | Array[Number/String] | 表示接收消息的若干好友         |
 | target   | 是       | Object               | 消息的接收者                   |
 
 ### 配置举例
 
 ```yml
-# 当接收到的指定的群或指定的好友的消息时，自动将消息转发给指定的群和好友
+# 当接收到的指定的群的消息时，自动将消息转发给指定的群和好友
 transfer:
   - listen:
       group:
         - 群号
         - 群号
         ...
-      user:
-        - QQ号
-        - QQ号
         ...
     target:
       group:

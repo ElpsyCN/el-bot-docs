@@ -396,6 +396,48 @@ if 消息来源 == 好友聊天 {
 }
 ```
 
+## Bot 控制
+
+有时我们回想让机器人暂停服务却因为如不在电脑前等原因无法关闭机器人，本机器人也提供了对应的功能：
++ 暂时 & 恢复
++ 暂时忽略某些群的消息 & 取消忽略
++ 切换到指定配置 & 恢复到上一个配置
++ 退出机器人
+
+下面我们以暂停机器人举例
+
+<chat-panel title="聊天记录（群聊或好友聊天）">
+  <chat-message :id="910426929" nickname="云游君" >echo 我在运行</chat-message>
+  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">我在运行</chat-message>
+  <chat-message :id="910426929" nickname="云游君" >暂停</chat-message>
+  <chat-message :id="910426929" nickname="云游君" >echo 我在运行</chat-message>
+</chat-panel>
+
+### 对应配置
+
+```yml
+echo:
+  enable: true
+global:
+  - when:
+      message:
+        detail:
+          - type: Plain
+            text: 暂停
+    do:
+      contorl:
+        - type: Suspend
+```
+
+### 对应伪码
+
+```cpp
+if 接收到的文本消息 == "暂停" {
+    暂停机器人();
+}
+```
+
+
 ## 更多配置
 
 + [配置语法](config-syntax.md)
