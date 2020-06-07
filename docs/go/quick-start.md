@@ -32,9 +32,9 @@ sh install.sh
 
 ### On Windows
 
-下载[mirai-console-wrapper-1.3.0-all](https://github.com/mamoe/mirai-console-wrapper/releases/download/1.3.0/mirai-console-wrapper-1.3.0-all.jar)到项目根目录
+下载[mirai-console-wrapper-1.3.0-all](https://github.com/mamoe/mirai-console-wrapper/releases/download/1.3.0/mirai-console-wrapper-1.3.0-all.jar)到`mirai/`
 
-下载[mirai-api-http-v1.7.1](https://github.com/mamoe/mirai-api-http/releases/download/v1.7.1/mirai-api-http-v1.7.1.jar)到`plugins/`
+下载[mirai-api-http-v1.7.1](https://github.com/mamoe/mirai-api-http/releases/download/v1.7.1/mirai-api-http-v1.7.1.jar)到`mirai/plugins/`
 
 ## 创建 setting.yml
 
