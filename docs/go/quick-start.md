@@ -10,13 +10,13 @@
 
 ## 下载项目
 
-### 稳定版（暂不支持插件）
+### 稳定版
 
 ```shell
 git clone https://github.com/ElpsyCN/el-bot-go.git
 ```
 
-### 开发板（支持插件）
+### 开发板
 
 ```shell
 git clone -b dev https://github.com/ElpsyCN/el-bot-go.git
