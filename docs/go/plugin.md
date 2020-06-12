@@ -284,7 +284,8 @@ plugins
 
 ```json
 {  
-    "quote": false,
+    // 被引用的消息的 ID，如果不引用消息则为0
+    "quoteID": 0,
     "receiver":{
         // 接收消息的群号
         "group":[],
