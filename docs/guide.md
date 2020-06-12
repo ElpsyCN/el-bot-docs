@@ -5,6 +5,11 @@
 - [GitHub](https://github.com/ElpsyCN/el-bot-go)
 - [文档](/go/)
 
+## el-bot-js
+
+- [GitHub](https://github.com/ElpsyCN/el-bot-js)
+- [文档](/js/)
+
 ## el-bot-web
 
 - [GitHub](https://github.com/ElpsyCN/el-bot-web)

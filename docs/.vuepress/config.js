@@ -47,8 +47,16 @@ module.exports = {
       },
     ],
     sidebar: {
-      "/go/": ["quick-start", "config-example", "config-syntax", "pre-def-var", "plugin", "other-feature"],
-      "/": ["guide", "go/", "about"],
+      "/go/": [
+        "quick-start",
+        "config-example",
+        "config-syntax",
+        "pre-def-var",
+        "plugin",
+        "other-feature",
+      ],
+      "/js/": ["", "config"],
+      "/": ["guide", "go/", "js/", "about"],
     },
   },
   plugins: [
