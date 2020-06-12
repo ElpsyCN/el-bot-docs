@@ -117,12 +117,12 @@ plugins
     },
     "senderGroup": {
         // 群号
-        "id": 123456789,
+        "id": "123456789",
         "name": "群名称"
     },
     "senderUser": {
         // 群成员 QQ 号
-        "id": 123456789,
+        "id": "123456789",
         "name": "群名片"
     },
     "type": "GroupMessage"
@@ -143,10 +143,10 @@ plugins
             }
         ],
         // 消息 ID，用于引用。
-        "messageID": 123456789
+        "messageID": "123456789"
     },
     "senderUser": {
-        "id": 123456789,
+        "id": "123456789",
         "name": "群名称"
     },
     "type": "GroupMessage"
@@ -159,12 +159,12 @@ plugins
 {
     "operation": [
         {
-            "groupID": 123456789,
+            "groupID": "123456789",
             "groupName": "群名称",
-            "operatorID": 123456789,
+            "operatorID": "123456789",
             "operatorName": "管理员群名片",
             "type": "MemberMute",
-            "userID": 123456789,
+            "userID": "123456789",
             "userName": "被禁言的成员的群名片"
         }
     ],
@@ -178,12 +178,12 @@ plugins
 {
     "operation": [
         {
-            "groupID": 123456789,
+            "groupID": "123456789",
             "groupName": "群名称",
-            "operatorID": 123456789,
+            "operatorID": "123456789",
             "operatorName": "管理员群名片",
             "type": "MemberMute",
-            "userID": 123456789,
+            "userID": "123456789",
             "userName": "解除禁言的成员的群名片"
         }
     ],
@@ -197,9 +197,9 @@ plugins
 {
     "operation": [
         {
-            "groupID": 123456789,
+            "groupID": "123456789",
             "groupName": "群名称",
-            "operatorID": 123456789,
+            "operatorID": "123456789",
             "operatorName": "管理员群名片",
             "type": "GroupMuteAll"
         }
@@ -214,9 +214,9 @@ plugins
 {
     "operation": [
         {
-            "groupID": 123456789,
+            "groupID": "123456789",
             "groupName": "群名称",
-            "operatorID": 123456789,
+            "operatorID": "123456789",
             "operatorName": "管理员群名片",
             "type": "GroupUnMuteAll"
         }
@@ -231,10 +231,10 @@ plugins
 {
     "operation": [
         {
-            "groupID": 123456789,
+            "groupID": "123456789",
             "groupName": "群名称",
             "type": "MemberJoin",
-            "userID": 123456789,
+            "userID": "123456789",
             "userName": "新成员群名片"
         }
     ],
@@ -248,12 +248,12 @@ plugins
 {
     "operation": [
         {
-            "groupID": 123456789,
+            "groupID": "123456789",
             "groupName": "群名称",
-            "operatorID": 123456789,
+            "operatorID": "123456789",
             "operatorName": "管理员群名片",
             "type": "MemberLeaveByKick",
-            "userID": 123456789,
+            "userID": "123456789",
             "userName": "被移除的成员的群名片"
         }
     ],
@@ -267,10 +267,10 @@ plugins
 {
     "operation": [
         {
-            "groupID": 123456789,
+            "groupID": "123456789",
             "groupName": "群名称",
             "type": "MemberLeaveByQuit",
-            "userID": 123456789,
+            "userID": "123456789",
             "userName": "主动退群的成员的群名片"
         }
     ],
@@ -313,9 +313,9 @@ plugins
 {  
     "type":"At",
     // 目标成员所在群群号
-    "groupID": 123456789,
+    "groupID": "123456789",
     // 目标成员 QQ 号
-    "userID": 123456789
+    "userID": "123456789"
 }
 ```
 
@@ -325,7 +325,7 @@ plugins
 {  
     "type":"AtAll",
     // 目标群号
-    "groupID": 123456789,
+    "groupID": "123456789",
 }
 ```
 
@@ -335,11 +335,11 @@ plugins
 {  
     "type":"MemberMute",
     // 目标成员所在群群号
-    "groupID": 123456789,
+    "groupID": "123456789",
     // 目标成员 QQ 号
-    "userID": 123456789,
+    "userID": "123456789",
     // 禁言时长（秒）
-    "second": 15
+    "second": "15"
 }
 ```
 
@@ -349,9 +349,9 @@ plugins
 {  
     "type":"MemberUnMute",
     // 目标成员所在群群号
-    "groupID": 123456789,
+    "groupID": "123456789",
     // 目标成员 QQ 号
-    "userID": 123456789,
+    "userID": "123456789",
 }
 ```
 
@@ -361,7 +361,7 @@ plugins
 {  
     "type":"GroupMuteAll",
     // 目标群号
-    "groupID": 123456789,
+    "groupID": "123456789",
 }
 ```
 
@@ -371,7 +371,7 @@ plugins
 {  
     "type":"GroupUnMuteAll",
     // 目标群号
-    "groupID": 123456789,
+    "groupID": "123456789",
 }
 ```
 
