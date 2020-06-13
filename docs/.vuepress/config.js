@@ -42,6 +42,7 @@ module.exports = {
         ariaLabel: "Project Menu",
         items: [
           { text: "el-bot-go", link: "/go/" },
+          { text: "el-bot-js", link: "/js/" },
           { text: "el-bot-web", link: "https://bot.elpsy.cn" },
         ],
       },

@@ -12,14 +12,38 @@ el-bot 的 js（~~女子小学生~~）版本。适合于认为 JavaScript 是世
 
 ## 快速开始
 
-> 首先，你必须得有 [Java](https://www.java.com/zh_CN/) 环境。
-> 其次，是 [Node.js](https://nodejs.org/zh-cn/download/) 环境。
+首先，你必须得有 [Java](https://www.java.com/zh_CN/) 与 [Node.js](https://nodejs.org/zh-cn/download/) 环境。
+
+如果你不想安装使用 [yarn](https://www.yarnpkg.com/zh-Hans/)，那么你可以使用 `npm run` 代替 `yarn` 命令。
+
+### 安装
+
+```sh
+git clone https://github.com/ElpsyCN/el-bot-js
+
+cd el-bot-js
+
+# 安装依赖
+yarn install
+# npm install
+
+# 安装 mirai 依赖
+yarn install:mirai
+# npm run install:mirai
+```
+
+> 你也可以手动下载 [mirai-console-wrapper](https://github.com/mamoe/mirai-console-wrapper/releases) 和 [mirai-api-http](https://github.com/mamoe/mirai-api-http/releases)。
+
+并放置如下：
+
+- `el-bot-js/mirai-console-wrapper-*.jar`
+- `el-bot-js/plugins/mirai-api-http-*.jar`
 
 ### 配置
 
 复制 `.env.example` 文件为 `.env`。
 
-填写你的 QQ 和密码。（脚本将会自动读取，并在启动控制台后登录）
+填写你的 QQ 和密码。（脚本将会自动读取，并在启动控制台 5s 后自动登录）
 
 > 当然，你手动登录也可以
 
@@ -30,7 +54,7 @@ BOT_PASSWORD=******
 
 复制 `plugins/MiraiAPIHTTP/setting.example.yml` 文件为 `plugins/MiraiAPIHTTP/setting.yml`。
 
-自定义你的 `authKey`，这很重要，否则你的机器人将很可能被 [NTR](https://zh.moegirl.org/zh-hans/NTR)。
+记得修改你的 `authKey`，这很重要，否则你的机器人将很可能被 [NTR](https://zh.moegirl.org/zh-hans/NTR)。
 
 ```yaml
 authKey: el-bot-js
@@ -38,17 +62,7 @@ authKey: el-bot-js
 
 ### 运行
 
-> 如果你不想安装使用 [yarn](https://www.yarnpkg.com/zh-Hans/)，那么你可以使用下方注释的 npm 命令。
-
 ```sh
-# 安装依赖
-yarn
-# npm install
-
-# 安装 mirai 依赖
-yarn install:mirai
-# npm run install:mirai
-
 # 启动 mirai 控制台
 yarn start:console
 # npm run start:console
@@ -69,3 +83,8 @@ yarn start
 yarn dev
 # npm run dev
 ```
+
+<chat-panel title="聊天记录">
+  <chat-message :id="910426929" nickname="云游君" >祝你玩的愉快！</chat-message>
+  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">Have fun!</chat-message>
+</chat-panel>
