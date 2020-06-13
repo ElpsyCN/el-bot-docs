@@ -18,7 +18,7 @@
 
 + 每个插件必须有一个属于自己的目录
 + 目录名规定的格式命名
-+ 目录下有且仅有一个名为`start.xxx`的文件用来启动插件
++ 目录下必须包含一个名为`start.xxx`的文件用来启动插件
   + `start.jar`: 使用 Java 编写
   + `start.js`: 使用 JavaScript 编写 且使用 nodejs 运行
   + `start.py`: 使用 Python 编写
@@ -83,6 +83,10 @@ plugins
 + 机器人的通信地址将作为插件的第一个启动参数。
 + 一个随机的 key 将作为插件的第二个启动参数。
 
+### 调试方式
+
+为了便于调试，机器人默认支持一个`test`作为 key，通信地址默认为`http://127.0.0.1:9999`，开发者可以据此调试自行启动插件进行调试，无需让机器人自动启动插件。
+
 ### 心跳信息
 
 + 机器人会在 15 秒内向插件发送一次心跳信息，其内容为任意内容。
@@ -90,15 +94,15 @@ plugins
 
 #### 获取机器人的心跳信息
 
-`/receiveHeartbeat`
+`/receiveHeartbeat?key=启动参数中获取的随机的key`
 
 #### 发送心跳信息给机器人
 
-`/sendHeartbeat`
+`/sendHeartbeat?key=启动参数中获取的随机的key`
 
 ### 获取事件
 
-`/fetchEvent`
+`/fetchEvent?key=启动参数中获取的随机的key`
 
 #### 群消息
 
@@ -280,7 +284,7 @@ plugins
 
 ### 发送消息
 
-`/sendMessage`
+`/sendMessage?key=启动参数中获取的随机的key`
 
 ```json
 {  
@@ -305,7 +309,7 @@ plugins
 
 ### 发送操作
 
-`/sendOperation`
+`/sendOperation?key=启动参数中获取的随机的key`
 
 #### At
 
@@ -377,7 +381,7 @@ plugins
 
 ### 发送机器人控制信息
 
-`/sendControl`
+`/sendControl?key=启动参数中获取的随机的key`
 
 #### 暂停机器人
 
