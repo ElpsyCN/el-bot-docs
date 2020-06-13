@@ -355,6 +355,7 @@ transfer:
 rss:
   - url:
     do:
+      cron: 
       operation:
       message:
         receiver:
@@ -364,6 +365,7 @@ rss:
 | ------ | ---- | ------------- | ------------------------------ |
 | rss    | 是   | Array[Object] | `rss`下的配置均为`rss`订阅配置 |
 | url    | 是   | String        | `rss`URL                       |
+| cron   | 否   | String        | `rss`检查间隔，默认为 15 分钟  |
 
 区别于「通用配置」，定时任务中的 `do.message.receiver` 是必须的，不允许省略，即至少要指定一个消息的接收者。
 
