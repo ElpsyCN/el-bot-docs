@@ -24,3 +24,32 @@ forward:
       group:
         - 123456
 ```
+
+## RSS
+
+> [rss-parser](https://github.com/rbren/rss-parser)
+
+默认包含的变量：
+
+feed:
+
+| Name          | Type   | Example                  |
+| ------------- | ------ | ------------------------ |
+| author        | Object | {name: ['云游君']}       |
+| updated       | String | 2020-05-31T12:00:00.000Z |
+| link          | String | /atom.xml                |
+| feedUrl       | String | /atom.xml                |
+| title         | String | 云游君的小站             |
+| lastBuildDate | String | 2020-05-31T12:00:00.000Z |
+
+link:
+
+| Name    | Type   | Example                                            |
+| ------- | ------ | -------------------------------------------------- |
+| title   | String | hexo-theme-yun 制作笔记                            |
+| link    | String | https://www.yunyoujun.cn/note/make-hexo-theme-yun/ |
+| pubDate | String | 2019-04-27T04:00:00.000Z                           |
+| id      | String | https://www.yunyoujun.cn/note/make-hexo-theme-yun/ |
+| isoDate | String | 2019-04-27T04:00:00.000Z                           |
+
+默认每 15 分钟获取一次，仅发送最新的一篇提示。

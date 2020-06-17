@@ -10,6 +10,16 @@
 
 el-bot 的 js（~~女子小学生~~）版本。适合于认为 JavaScript 是世界上最好的语言的用户。
 
+你也可以简称 EBJ。
+
+## Feature
+
+EBJ 有什么好处？
+
+EBJ 相比 EBG（el-bot-go）配置功能大而全的定位，EBJ 使用 JavaScript 这一解释型语言，所以可以较为方便地实现运行时动态加载插件。
+
+EBJ 函数式编程的思想，专注于实现常用的小功能，并很容易插入你自定义的插件。
+
 ## 快速开始
 
 首先，你必须得有 [Java](https://www.java.com/zh_CN/) 与 [Node.js](https://nodejs.org/zh-cn/download/) 环境。
