@@ -10,7 +10,7 @@
 
 el-bot 的 js（~~女子小学生~~）版本。适合于认为 JavaScript 是世界上最好的语言的用户。
 
-你也可以简称 EBJ。
+你也可以简称 `EBJ`。
 
 ## Feature
 

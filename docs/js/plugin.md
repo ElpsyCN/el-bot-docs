@@ -15,6 +15,8 @@ EBJ 使用了 [node-mirai](https://github.com/RedBeanN/node-mirai)，所以你�
 
 > 你的文件名将是你的插件名。
 
+你可以通过 `global.el.config` 获取全局配置，通过 `global.bot.mirai` 获取机器人实例。
+
 ```js
 // 你可以在这里对收到的消息进行处理
 function onMessage(msg) {
@@ -25,9 +27,10 @@ function onMessage(msg) {
 
 // 事件订阅说明
 // https://github.com/RedBeanN/node-mirai/blob/master/event.md
-function on(bot) {
+function on() {
+  // const bot = global.bot.mirai;
   console.log("on other event");
-  console.log(bot);
+  // console.log(bot);
   // bot.on(eventName, callback);
   // bot.on('mute', ({ operator }) => console.log(`我被${operator.memberName}禁言啦！`));
 }

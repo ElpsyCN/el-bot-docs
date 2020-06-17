@@ -56,7 +56,7 @@ module.exports = {
         "plugin",
         "other-feature",
       ],
-      "/js/": ["", "config"],
+      "/js/": ["", "config", "cli", "plugin", "faq"],
       "/": ["guide", "go/", "js/", "about"],
     },
   },
