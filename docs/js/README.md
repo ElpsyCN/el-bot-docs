@@ -86,6 +86,15 @@ yarn start
 
 然后？然后参照左侧的文档目录，继续编写你的自定义配置文件 `config/custom/index.yml` 即可。
 
+### 更新
+
+```sh
+# 拉取最新版本
+git pull
+# 安装依赖包
+yarn
+```
+
 ### 开发
 
 ```sh

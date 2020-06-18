@@ -4,9 +4,15 @@
 
 ## 应答
 
-- `is`: 消息与文本相同
-- `includes`: 消息包含文本
-- `reply`: [MessageChain](https://redbean.tech/node-mirai-sdk/global.html#MessageChain) 类型
+- `reply`: 类型
+
+| Name     | Type                                                                         | Example | Description                                                                                                                     |
+| -------- | ---------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| re       | Object                                                                       | 见代码  | [正则表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)，包含 `pattern` 与 `flags` 属性 |
+| is       | String / Array                                                               | 见代码  | 类型为字符串时，代表消息与文本相同；类型为数组时，代表**或**（即只要有一个完全相同则触发 ）                                     |
+| includes | String / Array                                                               | 见代码  | 类型为字符串时，代表消息包含文本；类型为数组时，代表**与**（即同时包含，才会触发 ）                                             |
+| reply    | [MessageChain](https://redbean.tech/node-mirai-sdk/global.html#MessageChain) | 见代码  | 消息链 ，匹配则回复                                                                                                             |
+| else     | [MessageChain](https://redbean.tech/node-mirai-sdk/global.html#MessageChain) | 见代码  | 非当前监听者时，匹配则回复                                                                                                      |
 
 <chat-panel title="聊天记录">
   <chat-message :id="910426929" nickname="云游君" >早呀</chat-message>
@@ -22,6 +28,74 @@ answer:
     reply:
       - type: Plain
         text: 早
+```
+
+---
+
+<chat-panel title="聊天记录">
+  <chat-message :id="910426929" nickname="云游君" >早呀</chat-message>
+  <chat-message :id="712727945" nickname="小云" >早</chat-message>
+  <chat-message :id="910426929" nickname="云游君" >哦哈呦</chat-message>
+  <chat-message :id="712727945" nickname="小云" >早</chat-message>
+  <chat-message :id="910426929" nickname="云游君" >起床啦</chat-message>
+  <chat-message :id="712727945" nickname="小云" >早</chat-message>
+</chat-panel>
+
+<chat-panel title="聊天记录">
+  <chat-message :id="910426929" nickname="云游君" >你好吗</chat-message>
+  <chat-message :id="910426929" nickname="云游君" >Hello</chat-message>
+  <chat-message :id="712727945" nickname="小云" >你好</chat-message>
+  <chat-message :id="910426929" nickname="云游君" >你好</chat-message>
+  <chat-message :id="712727945" nickname="小云" >你好</chat-message>
+</chat-panel>
+
+<chat-panel title="聊天记录">
+  <chat-message :id="910426929" nickname="云游君" >怎么了</chat-message>
+  <chat-message :id="910426929" nickname="云游君" >怎么了啊</chat-message>
+  <chat-message :id="712727945" nickname="小云" >不告诉你</chat-message>
+</chat-panel>
+
+```yaml
+# 消息应答
+answer:
+  - re:
+      pattern: 早|哦哈呦|起床啦
+    reply:
+      - type: Plain
+        text: 早
+  # 或
+  - is:
+      - Hello
+      - 你好
+    reply:
+      - type: Plain
+        text: 你好
+  # 同时包含
+  - includes:
+      - 怎么
+      - 啊
+    reply:
+      - type: Plain
+        text: 不告诉你
+```
+
+<chat-panel title="聊天记录">
+  <chat-message :id="910426929" nickname="云游君" >在吗</chat-message>
+  <chat-message :id="712727945" nickname="小云" >主人我在</chat-message>
+  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">在吗</chat-message>
+  <chat-message :id="712727945" nickname="小云" >爪巴</chat-message>
+</chat-panel>
+
+```yaml
+answer:
+  - listen: master
+    includes: 在吗
+    reply:
+      - type: Plain
+        text: 主人我在
+    else:
+      - type: Plain
+        text: 爪巴
 ```
 
 ## 转发
@@ -74,12 +148,12 @@ forward:
   <chat-message :id="712727945" nickname="小云">您当前订阅的 RSS 源：<br/>云游君的小站: https://www.yunyoujun.cn/atom.xml<br/>addesp: https://www.addesp.com/atom.xml<br/>el-bot-js: https://github.com/ElpsyCN/el-bot-js/commits.atom</chat-message>
 </chat-panel>
 
-| 关键字       | 必要 | 类型   | 示例              | 说明                                                                                                                      |
-| ------------ | ---- | ------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| name         | 是   | String | 云游君的小站      | 将作为 RSS 订阅的 ID                                                                                                      |
-| cron         | 否   | String | \*/15 \* \* \* \* | 定时器（类 Unix Cron 语法） \| [node-schedule](https://github.com/node-schedule/node-schedule)                            |
-| customFields | 否   | Object | 见代码            | 可参见 [Custom Fields - rss-parser](https://github.com/rbren/rss-parser#custom-fields)，自定义后的变量可在 content 中使用 |
-| content      | 否   | Array  | 见代码            | 内容输出形式，可通过 \${item.xxx} 的形式调用变量                                                                          |
+| 关键字       | 必要 | 类型   | 示例                | 说明                                                                                                                      |
+| ------------ | ---- | ------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| name         | 是   | String | 云游君的小站        | 将作为 RSS 订阅的 ID                                                                                                      |
+| cron         | 否   | String | "\*/15 \* \* \* \*" | 定时器（类 Unix Cron 语法） \| [node-schedule](https://github.com/node-schedule/node-schedule)                            |
+| customFields | 否   | Object | 见代码              | 可参见 [Custom Fields - rss-parser](https://github.com/rbren/rss-parser#custom-fields)，自定义后的变量可在 content 中使用 |
+| content      | 否   | Array  | 见代码              | 内容输出形式，可通过 \${item.xxx} 的形式调用变量                                                                          |
 
 默认每 15 分钟获取一次，与本地缓存的 RSS 信息比较，若内容不同时，则发送最新的一篇提示。
 
@@ -91,6 +165,7 @@ forward:
 rss:
   - name: 云游君的小站
     url: https://www.yunyoujun.cn/atom.xml
+    # cron: "*/15 * * * *"
     customFields:
       item:
         - updated
