@@ -68,7 +68,7 @@ sh start-console.sh
 
 ## 启动 el-bot-go
 
-如果执行下列操作的时候出现 package 下载失败的情况，建议前往[releases](https://github.com/ElpsyCN/el-bot-go/releases)下载对应的二进制文件到`bin`目录下再执行下面的操作。
+如果执行下列操作的时候出现 package 下载失败的情况，可以尝试设置环境变量`GOPROXY=https://goproxy.io/`后重试。
 
 ### On Unix Like
 
