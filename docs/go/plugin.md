@@ -91,9 +91,14 @@ plugins
 
 + 插件需要在 15 秒内向插件发送至少一次 ping，机器人收到 ping 之后会回复 pong。
 + 下列接口均需要分别进行心跳通信
+    + `fetchEvent`
     + `sendMessage`
     + `sendOperation`
     + `sendControl`
+
+### 获取事件
+
+`/fetchEvent?key=启动参数中获取的随机的key`
 
 #### 群消息
 
