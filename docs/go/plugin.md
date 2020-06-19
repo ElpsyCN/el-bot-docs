@@ -89,20 +89,11 @@ plugins
 
 ### 心跳信息
 
-+ 机器人会在 15 秒内向插件发送一次心跳信息，其内容为任意内容。
-+ 插件需要在 15 秒内向插件发送至少一次心跳信息，其内容为任意内容。
-
-#### 获取机器人的心跳信息
-
-`/receiveHeartbeat?key=启动参数中获取的随机的key`
-
-#### 发送心跳信息给机器人
-
-`/sendHeartbeat?key=启动参数中获取的随机的key`
-
-### 获取事件
-
-`/fetchEvent?key=启动参数中获取的随机的key`
++ 插件需要在 15 秒内向插件发送至少一次 ping，机器人收到 ping 之后会回复 pong。
++ 下列接口均需要分别进行心跳通信
+    + `sendMessage`
+    + `sendOperation`
+    + `sendControl`
 
 #### 群消息
 
