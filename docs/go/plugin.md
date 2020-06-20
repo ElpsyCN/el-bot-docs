@@ -5,10 +5,10 @@
 ## 支持的语言
 
 本机器人支持下列语言编写的插件
-+ Java: 需要提供`.jar`文件
-+ Python: 需要提供`.py`文件
-+ JavaScript: 需要提供`.js`文件
-+ 任何可以编译到机器码的语言所编译出来的二进制文件
++ Java: 需要提供`.jar`文件，本地需要有`Java`运行环境。
++ Python: 需要提供`.py`文件，本地需要有`Python`运行环境。
++ JavaScript: 需要提供`.js`文件，本地需要有`NodeJS`运行环境。
++ 任何可以编译到机器码的语言所编译出来的二进制文件，本地需要有对应的`Runtime`。
 
 ## 安装
 
@@ -89,7 +89,7 @@ plugins
 
 ### 心跳信息
 
-+ 插件需要在 15 秒内向插件发送至少一次 ping，机器人收到 ping 之后会回复 pong。
++ 插件需要在 15 秒内向机器人发送至少一次`ping`，机器人收到`ping`之后会回复`pong`。
 + 下列接口均需要分别进行心跳通信
     + `fetchEvent`
     + `sendMessage`
@@ -400,7 +400,7 @@ plugins
 ```json
 {  
     "type":"EnterConfig",
-    "path":"配置相对于目录 config/ 的路径"
+    "path":"配置所在目录（相对于目录 config/ 的路径）"
 }
 ```
 
@@ -448,7 +448,7 @@ plugins
   <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">插件</chat-message>
 </chat-panel>
 
-这个功能是由插件`plugins/compile/javaScript/ElpsyCN-echo/start.js`实现，该插件对对应的配置为(`config/default.yml`)
+这个功能是由插件`plugins/compile/javaScript/ElpsyCN-echo/start.js`实现，该插件对对应的配置为(`config/default.yml`)，使用此插件需要保证本地有`NodeJS`的运行环境。
 
 ```yml
 echo:
@@ -463,7 +463,7 @@ global:
       message:
         detail:
           - type: Plain
-            regex: 'echo\s(.+)'
+            regex: '\Aecho\s(.+)\z'
     do:
       message:
         detail:

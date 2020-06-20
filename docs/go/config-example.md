@@ -120,6 +120,8 @@ if 消息来源 == 群聊 {
 
 实际情况中消息更为复杂，本机器人支持通过正则表达式来匹配文本消息。
 
+> 本配置文件使用的是`RE2`标准的语法，但是不支持`\C`。
+
 <chat-panel title="聊天记录（群聊）">
   <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">又出 bug 了，感觉头发不保。</chat-message>
   <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">手持两把锟斤拷，口中疾呼烫烫烫。</chat-message>
