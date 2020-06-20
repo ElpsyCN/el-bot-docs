@@ -85,7 +85,7 @@ detail:
 | Face   | 表示接收到的表情      | 表示发送的表情        | faceName   | String         | 接收到的表情的名称                 | 要发送的表情的名称（详见`config/face-map.yml`）                        |
 | Xml    | 表示接收到的 XML 文本 | 表示要发送的 XML 文本 | text       | String         | 无                                 | 表示要发送的 XML 文本内容                                              |
 
-> 本配置文件使用的是`RE2`标准的语法，但是不支持`\C`。
+> 本配置文件使用正则标准是`RE2`标准，但是不支持`\C`。
 
 ### sender
 
