@@ -161,7 +161,6 @@ answer:
   <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">在吗</chat-message>
   <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">在</chat-message>
   <chat-message :id="910426929" nickname="云游君" >在吗</chat-message>
-  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">你好</chat-message>
 </chat-panel>
 
 ## 实时消息处理型插件
