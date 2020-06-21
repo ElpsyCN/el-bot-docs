@@ -55,6 +55,7 @@ module.exports = {
         "pre-def-var",
         "built-in-plugin",
         "plugin-sys",
+        "dev",
         "other-feature",
       ],
       "/js/": ["", "config", "cli", "plugin", "faq"],
