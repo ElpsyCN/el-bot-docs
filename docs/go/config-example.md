@@ -183,7 +183,7 @@ group:
             path: image.jpg
 ```
 
-+ path: 图片的相对路径，相对于`plugins/MiraiAPIHTTP/images/`
++ path: 图片的相对路径，相对于`mirai/plugins/MiraiAPIHTTP/images/`
 
 #### 等价伪码
 
