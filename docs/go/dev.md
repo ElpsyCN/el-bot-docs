@@ -2,7 +2,7 @@
 
 ## 层次图
 
-![](go/image/hierarchy.jpg)
+![](/images/ebg/hierarchy.jpg)
 
 ## IPO 表
 
