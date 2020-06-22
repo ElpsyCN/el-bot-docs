@@ -1,11 +1,17 @@
-# 插件系统
+# 编写插件
 
-EBJ 使用了 [node-mirai](https://github.com/RedBeanN/node-mirai)，所以你可以参照该 SDK 文档为你的机器人自定义插件。
+EBJ 使用了 [mirai-ts](https://github.com/ElpsyCN/el-bot-js/tree/dev/packages/mirai-ts)，尚未完全开发完成，足够完善后将会发布成 npm 包。
 
 你可以暴露两个函数。
 
-- `onMessage`: 监听消息，默认传入 [message](https://redbean.tech/node-mirai-sdk/global.html#message) 类型参数
+- `onMessage`: 监听消息，默认传入 MessageType.Message 类型参数
 - `on`: 监听事件，默认传入 mirai 机器人实例
+
+::: tip
+如果你觉得某个插件的功能非常有用受众很广，可以考虑直接为 [el-bot-js](https://github.com/ElpsyCN/el-bot-js) 提 PR。
+
+我们也打算建立一个仓库专门收集第三方插件（对部分群体有用但不是必须的）。
+:::
 
 ## 如何编写插件？
 
@@ -26,7 +32,7 @@ function onMessage(msg) {
 }
 
 // 事件订阅说明
-// https://github.com/RedBeanN/node-mirai/blob/master/event.md
+// https://github.com/project-mirai/mirai-api-http/blob/master/EventType.md
 function on() {
   // const bot = global.bot.mirai;
   console.log("on other event");
