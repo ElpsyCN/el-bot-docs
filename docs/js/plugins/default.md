@@ -229,10 +229,10 @@ rss:
 
 #### link
 
-| Name    | Type   | Example                                            |
-| ------- | ------ | -------------------------------------------------- |
-| title   | String | hexo-theme-yun 制作笔记                            |
-| link    | String | https://www.yunyoujun.cn/note/make-hexo-theme-yun/ |
-| pubDate | String | 2019-04-27T04:00:00.000Z                           |
-| id      | String | https://www.yunyoujun.cn/note/make-hexo-theme-yun/ |
-| isoDate | String | 2019-04-27T04:00:00.000Z                           |
+| Name    | Type   | Example                                              |
+| ------- | ------ | ---------------------------------------------------- |
+| title   | String | hexo-theme-yun 制作笔记                              |
+| link    | String | "https://www.yunyoujun.cn/note/make-hexo-theme-yun/" |
+| pubDate | String | 2019-04-27T04:00:00.000Z                             |
+| id      | String | "https://www.yunyoujun.cn/note/make-hexo-theme-yun/" |
+| isoDate | String | 2019-04-27T04:00:00.000Z                             |
