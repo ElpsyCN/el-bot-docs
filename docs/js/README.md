@@ -6,19 +6,29 @@
 
 > 这是啥？
 
-一个基于 mirai 实现的配置型 QQ 机器人。
+一个基于 [mirai-ts](https://github.com/YunYouJun/mirai-ts) 实现的配置型 QQ 机器人。
 
 el-bot 的 js（~~女子小学生~~）版本。适合于认为 JavaScript 是世界上最好的语言的用户。
 
 你也可以将其简称为 `EBJ`。
 
+[一份无关紧要的开发历程](https://www.yunyoujun.cn/note/make-el-bot-js/)
+
 ## Feature
+
+EBJ 展示了整个 mirai-ts 的使用流程，并内置了一些如自动应答、转发、命令行、RSS 等常用功能（默认插件），开箱即用。
+
+你只需要一些自定义的配置，而不再需要编写繁琐的脚本内容。
+
+但这并不是束缚，在插件系统中你仍然可以调用机器人所有的上下文，并通过编写插件的形式快速实现你想要的功能。
 
 **EBJ 有什么好处？**
 
 EBJ 相比 EBG（el-bot-go）配置功能大而全的定位，EBJ 使用 JavaScript 这一解释型语言，所以可以较为方便地实现运行时动态加载插件。
 
 EBJ 使用函数式编程的思想，专注于实现常用的小功能，并很容易插入你自定义的插件。
+
+她还提供了一些常用的脚本，譬如自动下载 mirai 依赖，启动并登录 mirai-console，webhook 等。
 
 ## 快速开始
 
