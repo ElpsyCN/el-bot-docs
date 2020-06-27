@@ -182,7 +182,7 @@ plugins
             "groupName": "群名称",
             "operatorID": "123456789",
             "operatorName": "管理员群名片",
-            "type": "MemberMute",
+            "type": "MemberUnMute",
             "userID": "123456789",
             "userName": "解除禁言的成员的群名片"
         }
@@ -490,20 +490,104 @@ global:
 2. 插件的第一个启动参数为插件指定的顶级关键字下的内容的 JSON 字符串。
 3. 插件处理完毕后应将处理结果以 JSON 字符串的形式输出到 `stdout` 并立即结束所有进程。 
 
-### 开发插件
-
-本机器人对插件所支持的配置无任何要求，只要插件可以将其转化为机器人可支持的配置。
-
-## 注意事项
+## 开发插件
 
 + 由于插件是由机器人启动的，所以插件启动后其`当前目录\运行目录`不是插件程序所在的目录，而是`src/main`，请注意。
 
 ### 配置编译型插件
 
+#### 开发步骤
+
+1. 按照下列规则建立目录名
+    1. 目录名行为为`xxxxx-keyword`
+    2. `xxxxx`为任意字符串，可按照喜好决定。
+    3. `keyword`为配置文件中的顶级关键字
+        + > 顶级关键字：如果读者了解`YAML`格式大概可以猜出来，即没有上层关键字的关键字，也可以说是`YAML`文件中”最左边“的哪些关键字。
+        + 如 `ElpsyCN-echo` 表示其对应的顶级关键字为`echo`。
+        + 其配置文件举例
+            ```yml
+            echo:
+                enable: true
+            ```
+2. 在目录下防止文件`start.xxx`作为插件的入口文件。
+    + `xxx`只能为这些取值中一个，`js`、`py、``jar`、`py``exe`和`bin`。
+    + 除了`start.xxx`文件，其它对其它文件的格式无任何要求。
+3. 通过第一个自动参数来获得等待处理的配置信息，配置信息格式为 JSON 字符串。
+    1. 
+        ```yml
+        echo:
+            enable: true
+        ```
+    2. 如果配置内容如上，则启动参数为`"{"enable":true}"`
+4. 将等待处理的配置信息转化为机器人支持的通用配置后输出到`stdout`，然后自行退出。
+5. 将目录放置到指定的目录下。
+
+#### Demo
+
++ [`plugins/compile/javaScript/ElpsyCN-echo/`](https://github.com/ElpsyCN/el-bot-go/tree/master/plugins/compile/javaScript/ElpsyCN-echo)
++ [`plugins/compile/javaScript/ElpsyCN-answer/`](https://github.com/ElpsyCN/el-bot-go/tree/master/plugins/compile/javaScript/ElpsyCN-answer)
+
+#### 注意事项
+
 + 对于`keyword`相同多个插件，机器人只会加载其中一个。
 + 机器人支持的配置格式目前支持提供`YAML`格式，见[配置语法](config-syntax.md)，其可以轻易地与`JSON`格式对应。开发者只需要简单了解`YAML`即可将其转化为`JSON`。
 
 ### 实时消息处理型插件
+
+#### 开发步骤
+
+1. 新建一个目录，完全按照自己的喜好命名。
+2. 在目录下防止文件`start.xxx`作为插件的入口文件。
+    + `xxx`只能为这些取值中一个，`js`、`py、``jar`、`py``exe`和`bin`。
+    + 除了`start.xxx`文件，其它对其它文件的格式无任何要求。
+3. 通过第一个参数获取和机器人的通信地址，通过第二参数获取用于验证身份的`randkey`。
+4. 按需与下列的接口建立`websocket`连接。
+    + `fetchEvent?key=randkey`：用于获取机器人接收到的消息和事件
+    + `sendMessage?key=randkey`：用于发送消息。
+    + `sendOperation?key=randkey`：用于发送操作，如禁言。
+    + `sendControl?key=randkey`：用于控制机器人，如挂起。
+5. 与对应接口建立连接后，需要在 15 秒内至少向机器人发送一次`ping`信息，机器人收到后会回复`pong`。注意，每个接口的心跳检测是互相独立的，所以如果与多个接口建立了连接，则每个接口都要但是进行心跳通信。
+6. 按照需求编写处理消息的代码。
+7. 将目录拷贝到对应的位置。
+
+#### SDK
+
+目前在`dev`分支提供了 JavaScript 的 SDK，下面给出一段 Demo，功能是当有人发送的群消息为`sdk`时，机器人发送文本消息`JavaScript`。
+
+##### start.js
+
+```js
+var PluginClient = require("../../../../sdk/javaScript/client")
+var Message = require("../../../../sdk/javaScript/message")
+
+var args = process.argv.splice(2);
+var client = new PluginClient(args[0], args[1]);
+
+client.on("GroupMessage", function (event) {
+    try {
+        if (!event.message.detail) {
+            return;
+        }
+        if (!event.message.detail[0].text) {
+            return;
+        }
+        if (event.message.detail[0].type != "Plain") {
+            return;
+        }
+        let text = event.message.detail[0].text
+        if (text === "sdk") {
+            client.sendGroupMessage(event.senderGroup.id, [
+                Message.Plain("JavaScript");
+            ])
+        }
+    } catch (error) {
+
+    }
+})
+
+client.start();
+```
+#### 注意事项
 
 + 机器人退出时不会自动结束插件进程，需要插件自行通过心跳信息判断机器人是否退出并退出自身。
 + 当超时没有收到心跳信息后机器人会自动关闭对应的连接，并不会尝试重连，如果插件有重连需求需要自己重连。
