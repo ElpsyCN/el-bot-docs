@@ -24,7 +24,7 @@ EBJ 展示了整个 mirai-ts 的使用流程，并内置了一些如自动应答
 
 **EBJ 有什么好处？**
 
-EBJ 相比 EBG（el-bot-go）配置功能大而全的定位，EBJ 使用 JavaScript 这一解释型语言，所以可以较为方便地实现运行时动态加载插件。
+EBJ 使用 JavaScript 这一解释型语言，所以可以较为方便地实现运行时动态加载插件。
 
 EBJ 使用函数式编程的思想，专注于实现常用的小功能，并很容易插入你自定义的插件。
 
@@ -67,7 +67,7 @@ yarn install:mirai
 
 复制 `.env.example` 文件为 `.env`。
 
-填写你的 QQ 和密码。（脚本将会自动读取，并在启动控制台 5s 后自动登录）
+填写你的 QQ 和密码。（脚本将会自动读取，并在启动控制台 5s 后自动登录）（后续会优化）
 
 > 当然，你手动登录也可以
 
@@ -84,14 +84,27 @@ BOT_PASSWORD=******
 authKey: el-bot-js
 ```
 
+#### 自定义配置
+
+`config` 目录下新建一个 `custom` 文件夹，并新建 `index.yml` 文件。（用于书写后续的自定义配置）
+
 ### 运行
 
+#### 启动 mirai 控制台
+
 ```sh
-# 启动 mirai 控制台
 yarn start:console
 # npm run start:console
+```
 
-# 启动 el-bot-js
+> 此时 `mirai-console-wrapper` 会自动下载 `mirai-console` 和 `mirai-core-qqandroid` 的 jar 包。
+> 因为国内行情，可能会下载失败。你可以进群 `707408530` 从群文件中获取，并手动放置到 content 文件夹下。
+
+#### 启动 el-bot-js
+
+> 新建一个终端
+
+```sh
 yarn start
 # npm run start
 ```

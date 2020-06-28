@@ -75,3 +75,17 @@ listen:
 ### target
 
 结构基本与 listen 相同。
+
+## 定时任务
+
+拥有定时任务的插件，通常使用 `cron` 作为子选项，并使用 [node-schedule](https://github.com/node-schedule/node-schedule) 实现定时功能。
+
+譬如定时发一句 `一言` 到群中。
+
+```yaml
+hitokoto:
+  cron: 0 0 * * *
+  target:
+    group:
+      - 389401003
+```
