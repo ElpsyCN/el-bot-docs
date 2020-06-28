@@ -22,7 +22,7 @@ echo:
   <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">你好</chat-message>
 </chat-panel>
 
-### ElpsyCN-hitokoto
+### ElpsyCN-hitokoto（仅开发版）
 
 调用一言接口发送随机的句子
 
