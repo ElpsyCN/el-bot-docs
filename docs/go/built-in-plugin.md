@@ -18,8 +18,42 @@ echo:
 #### 查看效果
 
 <chat-panel title="聊天记录（群聊或好友聊天）">
-  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">echo 你好</chat-message>
+  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">el echo 你好</chat-message>
   <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">你好</chat-message>
+</chat-panel>
+
+### ElpsyCN-hitokoto
+
+调用一言接口发送随机的句子
+
+#### 配置语法
+
+```yml
+hitokoto:
+  enable: true
+  when: el say
+  line: gloabl
+  maxlength:
+  minlength:
+  types:
+    - a
+    - b
+```
+
+| 关键字    | 类型          | 说明                                                         |      |
+| --------- | ------------- | ------------------------------------------------------------ | ---- |
+| enable    | Bool          | 是否启用插件                                                 |      |
+| types     | Array[String] | 表示[句子类型](https://developer.hitokoto.cn/sentence/#%E5%8F%A5%E5%AD%90%E7%B1%BB%E5%9E%8B%EF%BC%88%E5%8F%82%E6%95%B0%EF%BC%89) |      |
+| line      | String        | 表示接口线路，`global`表示国际线路，不写或其它表示国内线路   |      |
+| when      | String        | 表示触发动作的文本                                           |      |
+| maxlength | Interger      | 返回句子的最大长度（包含）                                   |      |
+| minlength | Interger      | 返回句子的最小长度（包含）                                   |      |
+
+#### 查看效果
+
+<chat-panel title="聊天记录（群聊或好友聊天）">
+  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">el say</chat-message>
+  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">{一段随机句子}\n——{来源}</chat-message>
 </chat-panel>
 
 ### ElpsyCN-answer
