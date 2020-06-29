@@ -48,14 +48,15 @@ git clone -b master https://github.com/ElpsyCN/el-bot-js
 cd el-bot-js
 
 # 安装依赖
-yarn install
+yarn
 # npm install
 
-# 安装 mirai 依赖
+# 安装 mirai 依赖，会显示交互命令行，选择对应版本下载即可。
 yarn install:mirai
 # npm run install:mirai
 ```
 
+> 本质对 [miraiOK](https://github.com/LXY1226/miraiOK) 再进行了一层包裹，可通过命令行选择对应版本并下载。
 > 你也可以手动下载 [mirai-console-wrapper](https://github.com/mamoe/mirai-console-wrapper/releases) 和 [mirai-api-http](https://github.com/mamoe/mirai-api-http/releases)。
 
 并放置如下：
@@ -67,14 +68,13 @@ yarn install:mirai
 
 复制 `.env.example` 文件为 `.env`。
 
-填写你的 QQ 和密码。（脚本将会自动读取，并在启动控制台 5s 后自动登录）（后续会优化）
-
-> 当然，你手动登录也可以
+填写你的 QQ。（用来告诉 EBJ 你是要登录哪个 QQ）
 
 ```bash
 BOT_QQ=123456
-BOT_PASSWORD=******
 ```
+
+> 当然，你手动登录也可以
 
 复制 `plugins/MiraiAPIHTTP/setting.example.yml` 文件为 `plugins/MiraiAPIHTTP/setting.yml`。
 
@@ -93,16 +93,26 @@ authKey: el-bot-js
 #### 启动 mirai 控制台
 
 ```sh
-yarn start:console
-# npm run start:console
+yarn start:mirai
+# npm run start:mirai
 ```
 
-> 此时 `mirai-console-wrapper` 会自动下载 `mirai-console` 和 `mirai-core-qqandroid` 的 jar 包。
-> 因为国内行情，可能会下载失败。你可以进群 `707408530` 从群文件中获取，并手动放置到 content 文件夹下。
+> 此时 `miraiOK` 会自动下载 `mirai-console-wrapper`、 `mirai-console` 和 `mirai-core-qqandroid` 的 jar 包，并放到对应位置。
+> 如果下载失败。你可以进群 `707408530` 从群文件中获取，并手动放置到 content 文件夹下。
+
+::: tip
+miraiOK 提供了自动登录功能，你可以先 `yarn start:mirai` 启动，生成 `config.txt` 文件。
+进入 `config.txt`，在末尾添加：
+
+```sh
+login 你的QQ 你的密码
+```
+
+:::
 
 #### 启动 el-bot-js
 
-> 新建一个终端
+> 记得新建一个终端
 
 ```sh
 yarn start

@@ -113,17 +113,15 @@ mirai-ts 实现了一个事件队列，对应的监听事件将会推入对应�
 
 你可以覆盖 `plugins.default` 来只加载你想加载的默认插件。
 
-### 加载社区插件
+### 社区插件
 
 [el-bot-js-plugins](https://github.com/ElpsyCN/el-bot-js-plugins) 是 EBJ 的社区插件集中地，它提供了许多有趣的插件。
 
 同时也欢迎你为其提交插件，来给更多人使用。
 
-> 放到 el-bot-js 的 packages 目录下
-
 ```sh
-cd packages
-git clone https://github.com/ElpsyCN/el-bot-js-plugins
+# 即放到 el-bot-js 的 packages 目录下
+git clone https://github.com/ElpsyCN/el-bot-js-plugins packages/el-bot-js-plugins
 ```
 
 譬如加载 `niubi` 插件：
