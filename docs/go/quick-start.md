@@ -28,13 +28,22 @@ git clone -b dev https://github.com/ElpsyCN/el-bot-go.git
 
 ### On Unix Like
 
+仅支持下列架构：
++ Linux amd64
++ Darwin i386
++ Darwin amd64
+
 ```shell
 sh install.sh
 ```
 
 ### On Windows
 
-下载[mirai-console-wrapper-1.3.0-all](https://github.com/mamoe/mirai-console-wrapper/releases/download/1.3.0/mirai-console-wrapper-1.3.0-all.jar)到`mirai/`
+仅支持`amd64`架构。
+
+前往 https://github.com/LXY1226/MiraiOK 下载 Windows-amd64 的 MiraiOK 程序到`/mirai`下。
+
+<!-- 下载[mirai-console-wrapper-1.3.0-all](https://github.com/mamoe/mirai-console-wrapper/releases/download/1.3.0/mirai-console-wrapper-1.3.0-all.jar)到`mirai/` -->
 
 下载[mirai-api-http-v1.7.2](https://github.com/mamoe/mirai-api-http/releases/download/v1.7.2/mirai-api-http-v1.7.2.jar)到`mirai/plugins/`
 
