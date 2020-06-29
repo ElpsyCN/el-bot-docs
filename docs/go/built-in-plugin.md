@@ -40,14 +40,14 @@ hitokoto:
     - b
 ```
 
-| 关键字    | 类型          | 说明                                                         |      |
-| --------- | ------------- | ------------------------------------------------------------ | ---- |
-| enable    | Bool          | 是否启用插件                                                 |      |
-| types     | Array[String] | 表示[句子类型](https://developer.hitokoto.cn/sentence/#%E5%8F%A5%E5%AD%90%E7%B1%BB%E5%9E%8B%EF%BC%88%E5%8F%82%E6%95%B0%EF%BC%89) |      |
-| line      | String        | 表示接口线路，`global`表示国际线路，不写或其它表示国内线路   |      |
-| when      | String        | 表示触发动作的文本                                           |      |
-| maxlength | Interger      | 返回句子的最大长度（包含）                                   |      |
-| minlength | Interger      | 返回句子的最小长度（包含）                                   |      |
+| 关键字    | 必要 | 类型          | 说明                                                         |      |
+| --------- | ---- | ------------- | ------------------------------------------------------------ | ---- |
+| enable    | 是   | Bool          | 是否启用插件                                                 |      |
+| types     | 否   | Array[String] | 表示[句子类型](https://developer.hitokoto.cn/sentence/#%E5%8F%A5%E5%AD%90%E7%B1%BB%E5%9E%8B%EF%BC%88%E5%8F%82%E6%95%B0%EF%BC%89) |      |
+| line      | 否   | String        | 表示接口线路，`global`表示国际线路，不写或其它表示国内线路   |      |
+| when      | 是   | String        | 表示触发动作的文本                                           |      |
+| maxlength | 否   | Interger      | 返回句子的最大长度（包含）                                   |      |
+| minlength | 否   | Interger      | 返回句子的最小长度（包含）                                   |      |
 
 #### 查看效果
 
@@ -66,152 +66,47 @@ hitokoto:
 
 ```yml
 answer:
-  - listen:
-    is:
-    re:
-    reply:
-```
-
-##### listen
-
-###### 消息来源为群和好友
-
-```yml
-listen: global
-```
-
-###### 消息来源为好友
-
-```yml
-listen: friend
-```
-
-###### 消息来源为群
-
-```yml
-listen: group
-```
-
-###### 消息来源为特定的用户和群
-
-```yml
-listen: 
+  enable: true
+  global:
+    - is: hello
+      reply: Hello World!
+    - is:
+        - 无双！
+        - 阵中战将，可留姓名！
+      reply: 
+        - 我乃
+        - 常山赵子龙也
+        - ！
+    - re: 早上好|哦哈呦|起床啦
+      reply: 早
   friend:
-    - QQ 号
-    - QQ 号
   group:
-    - 群号
-    - 群号
 ```
 
-`friend`下指定的用户不限于好友，比如某个群的某个用户发了一条消息，如果其 QQ 号被写到`friend`下，依然会被识别。
+| 关键字 | 必要                    | 类型                 | 说明                                                  |
+| ------ | ----------------------- | -------------------- | ----------------------------------------------------- |
+| enable | 是                      | Bool                 | 是否启用插件                                          |
+| global | 否                      | Array[Object]        | 此关键字下的规则对群聊和好友聊天均生效                |
+| friend | 否                      | Array[Object]        | 此关键字下的规则对好友聊天生效                        |
+| group  | 否                      | Array[Object]        | 此关键字下的规则对于群聊生效                          |
+| is     | `is`/`re`至少有一个出现 | String/Array[String] | 当接收到与之完全匹配的文本消息时触发`reply`           |
+| re     | `is`/`re`至少有一个出现 | String/Array[String] | 当接受要能被指定正则表达式匹配的文本消息时触发`reply` |
+| reply  | 是                      | String/Array[String] | 回复的文本消息内容                                    |
 
-##### target
-
-规定要回复的消息的接收者，不写此项则代表回复给本次接收到的消息的的发送者（群聊或好友）。
-
-```yml
-target:
-  friend:
-    - QQ 号
-  group:
-    - 群号
-```
-
-
-##### is
-
-字符串数组或字符串，当接收到的文本消息与其中一项完全相同时触发动作。
-
-```yml
-is: 早啊
-```
-
-或
-
-```yml
-is:
-  - 早啊
-  - 早上好
-```
-
-
-> 不能和`re`同时出现
-
-##### re
-
-字符串，当接收到的文本消息可以被正则表达式匹配时触发动作。
-
-> 不能和`is`同时出现
-
-> 正则标准为`RE2`标准，但是没有实现`\C`。
-
-##### reply
-
-被触发时执行的动作，支持多条消息，但是会被合并为一条消息。
-
-##### 发送文本消息
-
-```yml
-reply:
-  - type: Plain
-    text: 文本消息
-  - 文本消息
-```
-
-或
-
-```yml
-reply: 文本消息
-```
-
-##### 发送图片消息
-
-```yml
-reply:
-  - type: Image
-    path: 图片的相对路径（相对与 mirai/plugins/MiraiAPIHTTP/images/）
-  - type: Image
-    url: 图片 URL
-```
-
-#### 查看效果
-
-##### 示例配置
-
-```yml
-answer:
-  - re: 早|哦哈呦|起床啦
-    reply:
-      - type: Plain
-        text: 早
-  - is:
-      - Hello
-      - 你好
-    reply:
-      - type: Plain
-        text: 你
-      - type: Plain
-        text: 好
-  - listen: 
-      friend: 
-        - ADD-SP 的 QQ 号
-    is:
-      - 在吗
-    reply:
-      - type: Plain
-        text: 在
-```
+> 正则标准为`RE2`标准，但是不支持`\C`。
 
 ##### 效果
 
 <chat-panel title="聊天记录（群聊或好友聊天）">
-  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">早上好</chat-message>
-  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">早</chat-message>
-  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">哦哈呦</chat-message>
-  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">早</chat-message>
-  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">起床啦</chat-message>
-  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">早</chat-message>
+  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">hello</chat-message>
+  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">Hello World!</chat-message>
+</chat-panel>
+
+<chat-panel title="聊天记录（群聊或好友聊天）">
+  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">无双！</chat-message>
+  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">我乃常山赵子龙也！</chat-message>
+  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">阵中战将，可留姓名！</chat-message>
+  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">我乃常山赵子龙也！</chat-message>
 </chat-panel>
 
 <chat-panel title="聊天记录（群聊或好友聊天）">
@@ -221,13 +116,6 @@ answer:
   <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">早</chat-message>
   <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">起床啦</chat-message>
   <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">早</chat-message>
-</chat-panel>
-
-
-<chat-panel title="聊天记录（群聊或好友聊天）">
-  <chat-message nickname="ADD-SP" avatar="https://s1.ax1x.com/2020/06/03/td4S76.jpg">在吗</chat-message>
-  <chat-message nickname="Bot" avatar="https://s1.ax1x.com/2020/06/03/tdho7V.jpg">在</chat-message>
-  <chat-message :id="910426929" nickname="云游君" >在吗</chat-message>
 </chat-panel>
 
 ## 实时消息处理型插件

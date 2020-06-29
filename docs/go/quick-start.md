@@ -18,7 +18,7 @@
 git clone https://github.com/ElpsyCN/el-bot-go.git
 ```
 
-### 开发板
+### 开发版
 
 ```shell
 git clone -b dev https://github.com/ElpsyCN/el-bot-go.git
