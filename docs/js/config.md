@@ -76,6 +76,33 @@ listen:
 
 结构基本与 listen 相同。
 
+## 匹配
+
+类似于 `answer`， `match` 为一个匹配数组，下可设置多个匹配方式。
+
+使用正则时，将会返回匹配的字符串数组。
+
+```yaml
+match:
+  - is: np
+  - includes: 早上好
+  - is: 酷
+  - re:
+      pattern: 来点(\S*)笑话
+```
+
+编写插件时，可以通过导入 `@utils/message` 的方式快速使用。
+
+```js
+import { is, includes, re, match } from "@utils/message";
+
+config.match.forEach((obj) => {
+  if (match(str, obj)) {
+    msg.reply("xxxxx");
+  }
+});
+```
+
 ## 定时任务
 
 拥有定时任务的插件，通常使用 `cron` 作为子选项，并使用 [node-schedule](https://github.com/node-schedule/node-schedule) 实现定时功能。

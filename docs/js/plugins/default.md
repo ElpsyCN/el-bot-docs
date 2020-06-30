@@ -238,3 +238,18 @@ rss:
 | pubDate | String | 2019-04-27T04:00:00.000Z                             |
 | id      | String | "https://www.yunyoujun.cn/note/make-hexo-theme-yun/" |
 | isoDate | String | 2019-04-27T04:00:00.000Z                             |
+
+## 消息频率限制
+
+消息发送频率限制插件名为 `limit`，默认开启，默认限制为每 20 秒 10 条。
+
+你也可以自定义你的配置，或不加载该插件。
+
+- `interval`: 时间间隔，单位为 ms
+- `count`: 允许发送消息数量
+
+```yaml
+limit:
+  interval: 20000
+  count: 10
+```
