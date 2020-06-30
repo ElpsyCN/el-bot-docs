@@ -49,11 +49,11 @@ module.exports = {
     ],
     sidebar: {
       "/go/": [
-        "quick-start",
         "config-example",
         "config-syntax",
         "pre-def-var",
         "built-in-plugin",
+        "community-plugin",
         "plugin-sys",
         "dev",
         "other-feature",
