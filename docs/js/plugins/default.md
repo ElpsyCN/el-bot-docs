@@ -2,6 +2,8 @@
 
 默认插件也就是 EBJ 默认携带的功能。
 
+> 更多插件请见社区插件库 [el-bot-js-plugins](https://github.com/ElpsyCN/el-bot-js-plugins)
+
 你也可以在你的**自定义**配置文件中如下设置，来只启用某几个默认的插件。
 
 ```yaml
@@ -236,31 +238,3 @@ rss:
 | pubDate | String | 2019-04-27T04:00:00.000Z                             |
 | id      | String | "https://www.yunyoujun.cn/note/make-hexo-theme-yun/" |
 | isoDate | String | 2019-04-27T04:00:00.000Z                             |
-
-## 一言
-
-收到某指令时，发送一句中二的话。
-
-match 为匹配的方式，下可设置 `is`, `includes`, `re` 基本与 `answer` 部分相同。
-
-params 字段各含义见 [请求参数 | 一言开发者中心](https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0)
-
-添加 `cron` 和 `target` 可定时向某群发送一条一言内容。（此处请见[配置讲解](/js/config.html#定时任务)）
-
-```yaml
-hitokoto:
-  # cron: 0 0 * * *
-  # target:
-  #   group:
-  #     - 389401003
-  match:
-    is: el say
-  params:
-    # c:
-    # encode:
-    # charset:
-    # callback:
-    # select:
-    # min_length:
-    # max_length:
-```

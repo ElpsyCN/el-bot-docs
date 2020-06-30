@@ -58,6 +58,7 @@ yarn install:mirai
 
 > 本质对 [miraiOK](https://github.com/LXY1226/miraiOK) 再进行了一层包裹，可通过命令行选择对应版本并下载。
 > 你也可以手动下载 [mirai-console-wrapper](https://github.com/mamoe/mirai-console-wrapper/releases) 和 [mirai-api-http](https://github.com/mamoe/mirai-api-http/releases)。
+> 因为国内行情，mirai-api-http 可能下载较慢，你也可以进群 707408530，从群文件中获取。
 
 并放置如下：
 
@@ -91,6 +92,10 @@ authKey: el-bot-js
 ### 运行
 
 #### 启动 mirai 控制台
+
+::: warning
+Windows 用户不用执行下述脚本，直接在文件夹中双击打开 miraiOK 开头的 exe 文件即可。
+:::
 
 ```sh
 yarn start:mirai
