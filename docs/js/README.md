@@ -14,6 +14,8 @@ el-bot 的 js（~~女子小学生~~）版本。适合于认为 JavaScript 是世
 
 [一份无关紧要的开发历程](https://www.yunyoujun.cn/note/make-el-bot-js/)
 
+> [指南](https://docs.bot.elpsy.cn/guide.html) 记得看
+
 ## Feature
 
 EBJ 展示了整个 mirai-ts 的使用流程，并内置了一些如自动应答、转发、命令行、RSS 等常用功能（默认插件），开箱即用。

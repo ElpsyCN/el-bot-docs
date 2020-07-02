@@ -73,7 +73,7 @@ export default async function(ctx) {
   mirai.on("GroupRecallEvent", ({ operator }) => {
     const text = `${operator.memberName} 撤回了一条消息，并拜托你不要再发色图了。`;
     console.log(text);
-    mirai.api.sendGroupMessage(text, res.group.id);
+    mirai.api.sendGroupMessage(text, operator.group.id);
   });
 }
 ```
@@ -95,6 +95,8 @@ if (canForward) {
 ## 加载插件
 
 编写完，你还需要在你的自定义配置文件 `config/custom/index.yml` 中加载它。
+
+> 记得重启。
 
 ```yaml
 plugins:
@@ -131,3 +133,12 @@ plugins:
   community:
     - niubi
 ```
+
+#### 更新社区插件
+
+```yaml
+yarn update:community
+# npm run update:community
+```
+
+> 或者自己进入对应目录 `cd packages/el-bot-js-plugins`，`git pull`。
