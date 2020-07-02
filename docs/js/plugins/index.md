@@ -137,8 +137,7 @@ plugins:
 #### 更新社区插件
 
 ```yaml
-yarn update:community
-# npm run update:community
+npm run pull:plugins
 ```
 
 > 或者自己进入对应目录 `cd packages/el-bot-js-plugins`，`git pull`。

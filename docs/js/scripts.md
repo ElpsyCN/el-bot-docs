@@ -1,5 +1,21 @@
 # 常用脚本
 
+## 启动
+
+等价于同时启动 mirai 和 el-bot-js。
+
+```sh
+npm run start
+```
+
+## 更新
+
+更新 EBJ、插件、配置（如果你的自定义配置也是 Git 仓库的话），并安装依赖。
+
+```sh
+npm run update
+```
+
 ## Webhook
 
 懂得人都懂（
@@ -18,5 +34,5 @@
 
 ### Command
 
-- `yarn webhook`: 只监听配置更新
-- `yarn webhook:all`: 同时监听配置更新和机器人仓库的更新推送
+- `npm run webhook`: 只监听配置更新
+- `npm run webhook:all`: 同时监听配置更新和机器人仓库的更新推送

@@ -36,8 +36,6 @@ EBJ 使用函数式编程的思想，专注于实现常用的小功能，并很�
 
 首先，你必须得有 [Java](https://www.java.com/zh_CN/) 与 [Node.js](https://nodejs.org/zh-cn/download/) 环境。
 
-如果你不想安装使用 [yarn](https://www.yarnpkg.com/zh-Hans/)，那么你可以使用 `npm run` 代替 `yarn` 命令。
-
 ### 安装
 
 ```sh
@@ -50,12 +48,16 @@ git clone -b master https://github.com/ElpsyCN/el-bot-js
 cd el-bot-js
 
 # 安装依赖
-yarn
-# npm install
+npm install
 
 # 安装 mirai 依赖，会显示交互命令行，选择对应版本下载即可。
-yarn install:mirai
-# npm run install:mirai
+npm run install:mirai
+```
+
+因为国内速度较慢，你可以考虑切换为淘宝镜像源：
+
+```sh
+npm config set registry https://registry.npm.taobao.org
 ```
 
 > 本质对 [miraiOK](https://github.com/LXY1226/miraiOK) 再进行了一层包裹，可通过命令行选择对应版本并下载。
@@ -93,6 +95,14 @@ authKey: el-bot-js
 
 ### 运行
 
+#### 启动全部
+
+执行该脚本等价于同时启动下文描述的 mirai 和 el-bot-js。（此时两者的输出信息将显示在同一个终端中。）
+
+```sh
+npm run start
+```
+
 #### 启动 mirai 控制台
 
 ::: warning
@@ -100,15 +110,14 @@ Windows 用户不用执行下述脚本，直接在文件夹中双击打开 mirai
 :::
 
 ```sh
-yarn start:mirai
-# npm run start:mirai
+npm run start:mirai
 ```
 
 > 此时 `miraiOK` 会自动下载 `mirai-console-wrapper`、 `mirai-console` 和 `mirai-core-qqandroid` 的 jar 包，并放到对应位置。
 > 如果下载失败。你可以进群 `707408530` 从群文件中获取，并手动放置到 content 文件夹下。
 
 ::: tip
-miraiOK 提供了自动登录功能，你可以先 `yarn start:mirai` 启动，生成 `config.txt` 文件。
+miraiOK 提供了自动登录功能，你可以先 `npm run start:mirai` 启动，生成 `config.txt` 文件。
 进入 `config.txt`，在末尾添加：
 
 ```sh
@@ -124,8 +133,7 @@ login 你的QQ 你的密码
 > 检测控制台是否可以正常使用的一个方式是访问 <localhost:4859/about> 查看是否有信息返回。（如果你修改了端口号，记得替换。）
 
 ```sh
-yarn start
-# npm run start
+npm run start:ebj
 ```
 
 此时，你的 QQ 机器人就已经成功运行起来了。并将附带一些默认的功能。
@@ -138,15 +146,14 @@ yarn start
 # 拉取最新版本
 git pull
 # 安装依赖包
-yarn
+npm install
 ```
 
 ### 开发
 
 ```sh
 # 开发模式 el-bot-js
-yarn dev
-# npm run dev
+npm run dev
 ```
 
 <chat-panel title="聊天记录">

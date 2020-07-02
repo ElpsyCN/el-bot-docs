@@ -163,6 +163,9 @@ forward:
 
 `rss` 指令可显示当前订阅源，并立即抓取最新 RSS。
 
+> 如果你不知道哪里有有趣的 RSS 源，推荐你使用 [RSSHub](https://github.com/DIYgod/RSSHub)。
+> 但很遗憾国内已经被墙了，因此你可以选择自建。
+
 <chat-panel title="私人助理">
   <chat-message :id="910426929" nickname="云游君">rss</chat-message>
   <chat-message :id="712727945" nickname="小云">您当前订阅的 RSS 源：<br/>云游君的小站: https://www.yunyoujun.cn/atom.xml<br/>addesp: https://www.addesp.com/atom.xml<br/>el-bot-js: https://github.com/ElpsyCN/el-bot-js/commits.atom</chat-message>
