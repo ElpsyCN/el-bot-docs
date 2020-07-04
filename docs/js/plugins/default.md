@@ -163,6 +163,8 @@ forward:
 
 `rss` 指令可显示当前订阅源，并立即抓取最新 RSS。
 
+抓取的 RSS 信息，将存储在 `el-bot-js/tmp/rss.json` 中。（默认只存储各 RSS 中第一条信息，以判断是否更新。你也可以删除该文件，以强制触发。）
+
 > 如果你不知道哪里有有趣的 RSS 源，推荐你使用 [RSSHub](https://github.com/DIYgod/RSSHub)。
 > 但很遗憾国内已经被墙了，因此你可以选择自建。
 
