@@ -1,12 +1,20 @@
 # 关于
 
-el-bot 是一个基于 [mirai](https://github.com/mamoe/mirai) 的 QQ 机器人统称。
+## 我们
 
-当前我们的工作有：
+本组织的名字取自「[命运石之门](https://zh.moegirl.org/命运石之门)」中男主[冈部伦太郎](https://zh.moegirl.org/zh-hans/冈部伦太郎)离别时的常用厨二病用语「El Psy Congroo」。
+没什么特别意义，冈部伦太郎的造词。是希腊语和拉丁语组成的词语，大意为强化思路。
 
-- [el-bot-go](https://github.com/ElpsyCN/el-bot-go)：基于 [gomirai](https://github.com/Logiase/gomirai) 实现的配置型 QQ 机器人。
-- [el-bot-js](https://github.com/ElpsyCN/el-bot-js)：基于 [mirai-ts](https://github.com/YunYouJun/mirai-ts) 实现的配置型 QQ 机器人。
-- [el-bot-web](https://github.com/ElpsyCN/el-bot-web)：基于 [mirai-api-http](https://github.com/mamoe/mirai-api-http) 实现，通过网站观测与控制你的 QQ 机器人。
+[未来道具研究所](http://futuregadget-lab.com/)也是作品中登场的一个架空组织，由冈部伦太郎、椎名真由理和桥田至三人创立的以发明道具为目的的研究所。实际上主要在做一些有趣但可能没什么用的东西。
+
+譬如：
+
+- 比特粒子炮，电视遥控器与玩具射线枪结合制成，实际只能（威风凛凛地）转台。
+- 竹蜻蜓照相机，摄像头会随着竹蜻蜓而高速旋转，导致看拍出来的视频的时候会让人看到头晕。
+
+> [未来道具](https://zh.moegirl.org/%E6%9C%AA%E6%9D%A5%E9%81%93%E5%85%B7)
+
+所以本质该组织也主要用来做一些可能有趣但没什么用（能有用当然最好）的东西。
 
 ## 设计
 

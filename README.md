@@ -10,6 +10,5 @@ el-bot 的说明文档集中处
 
 ## Project
 
-- [el-bot-go](https://github.com/ElpsyCN/el-bot-go)
-- [el-bot-js](https://github.com/ElpsyCN/el-bot-js)
+- [el-bot](https://github.com/ElpsyCN/el-bot)
 - [el-bot-web](https://github.com/ElpsyCN/el-bot-web)

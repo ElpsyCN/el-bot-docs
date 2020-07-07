@@ -1,6 +1,6 @@
 # 插件系统
 
-EBJ 使用了 [mirai-ts](https://github.com/YunYouJun/mirai-ts)。
+el-bot 使用了 [mirai-ts](https://github.com/YunYouJun/mirai-ts)。
 
 因此你在编写插件时，可以通过 `ctx.mirai.api` 的方式直接使用 mirai-ts 的 API 进行编写，同时不要处理登录、加载插件等问题。
 
@@ -12,9 +12,9 @@ mirai-ts 也提供了许多字符匹配、彩色日志等辅助小工具。
 具体例子见下方。
 
 ::: tip
-如果你觉得某个插件的功能非常有用受众很广，可以考虑直接为 [el-bot-js](https://github.com/ElpsyCN/el-bot-js) 提 PR。
+如果你觉得某个插件的功能非常有用受众很广，可以考虑直接为 [el-bot](https://github.com/ElpsyCN/el-bot) 提 PR。
 
-我们也建立了一个仓库 [el-bot-js-plugins](https://github.com/ElpsyCN/el-bot-js-plugins) 专门收集社区中有趣的插件（对部分群体有用但不是必须的）。
+我们也建立了一个仓库 [el-bot-plugins](https://github.com/ElpsyCN/el-bot-plugins) 专门收集社区中有趣的插件（对部分群体有用但不是必须的）。
 :::
 
 插件主要分为三种类型：
@@ -116,7 +116,7 @@ if (canForward) {
 
 > 你还可以在对应插件目录下编写一个 README.md 文档，记录如何使用。
 
-如果你想将插件提交到 [社区](https://github.com/ElpsyCN/el-bot-js-plugins) 中，`package.json` 与 `README.md` 是必不可少的。
+如果你想将插件提交到 [社区](https://github.com/ElpsyCN/el-bot-plugins) 中，`package.json` 与 `README.md` 是必不可少的。
 更方便别人知道如何使用它。
 
 ## 加载插件
@@ -144,7 +144,7 @@ mirai-ts 实现了一个事件队列，对应的监听事件将会推入对应�
 
 ### 社区插件
 
-[el-bot-js-plugins](https://github.com/ElpsyCN/el-bot-js-plugins) 是 EBJ 的社区插件集中地，它提供了许多有趣的插件。
+[el-bot-plugins](https://github.com/ElpsyCN/el-bot-plugins) 是 el-bot 的社区插件集中地，它提供了许多有趣的插件。
 
 插件的使用方式，见各插件的 `README.md`。
 
@@ -152,8 +152,8 @@ mirai-ts 实现了一个事件队列，对应的监听事件将会推入对应�
 
 ```sh
 npm run install:plugins
-# 即 clone 插件仓库放到 el-bot-js 的 packages 目录下
-# git clone https://github.com/ElpsyCN/el-bot-js-plugins packages/el-bot-js-plugins
+# 即 clone 插件仓库放到 el-bot 的 packages 目录下
+# git clone https://github.com/ElpsyCN/el-bot-plugins packages/el-bot-plugins
 ```
 
 譬如加载 `niubi` 插件：
@@ -170,4 +170,4 @@ plugins:
 npm run pull:plugins
 ```
 
-> 或者自己进入对应目录 `cd packages/el-bot-js-plugins`，`git pull`。
+> 或者自己进入对应目录 `cd packages/el-bot-plugins`，`git pull`。

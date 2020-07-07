@@ -1,16 +1,8 @@
 # 指南
 
-## Project
-
-| Project                                             | Docs                         | 简称 | 说明         |
-| --------------------------------------------------- | ---------------------------- | ---- | ------------ |
-| [el-bot-go](https://github.com/ElpsyCN/el-bot-go)   | [文档](/go/)                 | EBG  | GO 版 el-bot |
-| [el-bot-js](https://github.com/ElpsyCN/el-bot-js)   | [文档](/js/)                 | EBJ  | JS 版 el-bot |
-| [el-bot-web](https://github.com/ElpsyCN/el-bot-web) | [预览](https://bot.elpsy.cn) | EBW  | 网页控制台   |
-
 ## 使用须知
 
-无论你打算使用 `EBG` 还是 `EBJ`，在此之前你都需要简单了解一下 [YAML](https://baike.baidu.com/item/YAML/1067697)。
+在你打算使用机器人前，你可能需要简单了解一下 [YAML](https://baike.baidu.com/item/YAML/1067697)。
 
 > [YAML 语言教程](https://www.ruanyifeng.com/blog/2016/07/yaml.html)
 
@@ -32,14 +24,13 @@ name: el-bot
 
 ```yaml
 projects:
-  - el-bot-go
-  - el-bot-js
+  - el-bot
   - el-bot-web
 ```
 
 ```json
 {
-  "projects": ["el-bot-go", "el-bot-js", "el-bot-web"]
+  "projects": ["el-bot", "el-bot-web"]
 }
 ```
 

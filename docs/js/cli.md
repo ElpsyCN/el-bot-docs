@@ -17,7 +17,7 @@ el <command> [options]
 
 <chat-panel title="聊天记录">
   <chat-message :id="910426929" nickname="云游君">el -a</chat-message>
-  <chat-message :id="712727945" nickname="小云">GitHub: https://github.com/elpsycn/el-bot-js</chat-message>
+  <chat-message :id="712727945" nickname="小云">GitHub: https://github.com/elpsycn/el-bot</chat-message>
 </chat-panel>
 
 - `--version`, `-v`: 显示版本号

@@ -2,7 +2,7 @@
 
 ## 启动
 
-等价于同时启动 mirai 和 el-bot-js。
+等价于同时启动 mirai 和 el-bot。
 
 ```sh
 npm run start
@@ -10,7 +10,7 @@ npm run start
 
 ## 更新
 
-更新 EBJ、插件、配置（如果你的自定义配置也是 Git 仓库的话），并安装依赖。
+更新 el-bot、插件、配置（如果你的自定义配置也是 Git 仓库的话），并安装依赖。
 
 ```sh
 npm run update

@@ -6,17 +6,16 @@ tagline: 基于 Mirai 的可配置 QQ 机器人
 actionText: 快速上手 →
 actionLink: /guide/
 features:
-  - title: 轻量
-    details: 小巧不可小瞧
-  - title: 简单
-    details: 配置掌控一切
-  - title: 白嫖
-    details: 开源任您享用
+  - title: Element
+    details: 元素，无尽的世界线
+  - title: Elegrant
+    details: 优雅，不死的凤凰鸟
+  - title: Electronic
+    details: 电子，闪光的指压师
 footer: AGPL-3.0 Licensed | Copyright © ElpsyCN
 ---
 
 # Project
 
-- [el-bot-go](https://github.com/ElpsyCN/el-bot-go)：基于 [gomirai](https://github.com/Logiase/gomirai) 实现的配置型 QQ 机器人。
-- [el-bot-js](https://github.com/ElpsyCN/el-bot-js)：基于 [mirai-ts](https://github.com/YunYouJun/mirai-ts) 实现的配置型 QQ 机器人。（开发中...）
-- [el-bot-web](https://github.com/ElpsyCN/el-bot-web)：基于 [mirai-api-http](https://github.com/mamoe/mirai-api-http) 实现，通过网站观测与控制你的 QQ 机器人。（开发中...）
+- [el-bot](https://github.com/ElpsyCN/el-bot)：基于 [mirai-ts](https://github.com/YunYouJun/mirai-ts) 实现的配置型 QQ 机器人（框架？）。（开发中...，又不是不能用.jpg）
+- [el-bot-web](https://github.com/ElpsyCN/el-bot-web)：基于 [mirai-api-http](https://github.com/mamoe/mirai-api-http) 实现的 QQ 机器人网站控制台，通过网站观测与控制你的 QQ 机器人。（开发中...）

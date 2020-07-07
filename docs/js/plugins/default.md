@@ -1,8 +1,8 @@
 # 默认插件
 
-默认插件也就是 EBJ 默认携带的功能。
+默认插件也就是 el-bot 默认携带的功能。
 
-> 更多插件请见社区插件库 [el-bot-js-plugins](https://github.com/ElpsyCN/el-bot-js-plugins)
+> 更多插件请见社区插件库 [el-bot-plugins](https://github.com/ElpsyCN/el-bot-plugins)
 
 你也可以在你的**自定义**配置文件中如下设置，来只启用某几个默认的插件。
 
@@ -163,14 +163,14 @@ forward:
 
 `rss` 指令可显示当前订阅源，并立即抓取最新 RSS。
 
-抓取的 RSS 信息，将存储在 `el-bot-js/tmp/rss.json` 中。（默认只存储各 RSS 中第一条信息，以判断是否更新。你也可以删除该文件，以强制触发。）
+抓取的 RSS 信息，将存储在 `el-bot/tmp/rss.json` 中。（默认只存储各 RSS 中第一条信息，以判断是否更新。你也可以删除该文件，以强制触发。）
 
 > 如果你不知道哪里有有趣的 RSS 源，推荐你使用 [RSSHub](https://github.com/DIYgod/RSSHub)。
 > 但很遗憾国内已经被墙了，因此你可以选择自建。
 
 <chat-panel title="私人助理">
   <chat-message :id="910426929" nickname="云游君">rss</chat-message>
-  <chat-message :id="712727945" nickname="小云">您当前订阅的 RSS 源：<br/>云游君的小站: https://www.yunyoujun.cn/atom.xml<br/>addesp: https://www.addesp.com/atom.xml<br/>el-bot-js: https://github.com/ElpsyCN/el-bot-js/commits.atom</chat-message>
+  <chat-message :id="712727945" nickname="小云">您当前订阅的 RSS 源：<br/>云游君的小站: https://www.yunyoujun.cn/atom.xml<br/>addesp: https://www.addesp.com/atom.xml<br/>el-bot: https://github.com/ElpsyCN/el-bot/commits.atom</chat-message>
 </chat-panel>
 
 | 关键字       | 必要 | 类型   | 示例                | 说明                                                                                                                      |
@@ -252,9 +252,18 @@ rss:
 
 - `interval`: 时间间隔，单位为 ms
 - `count`: 允许发送消息数量
+- `sender`: 发送者
+  - `maximum`: 最大连续触发次数，超过将会禁言触发者（需要有管理员权限）
+  - `tooltip`: 禁言时的提示
+  - `time`: 禁言时长
 
 ```yaml
 limit:
   interval: 20000
   count: 10
+  sender:
+    # 连续次数
+    maximum: 3
+    tooltip: 我生气了！
+    time: 600
 ```
