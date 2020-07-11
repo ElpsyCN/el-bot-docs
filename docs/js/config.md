@@ -36,7 +36,7 @@ admin:
 
 ## 监听与目标
 
-其中 `listen` 与 `target` 分别代表监听对象和目标对象，是很多插件的通用配置属性。你可以举一反三。
+其中 `listen` 与 `target` 分别代表监听对象和目标对象，是很多插件的通用配置属性（前提是插件编写者这么做了）。你可以举一反三。
 
 > 注意此处的 listen 和 target 都为在对应数组中对象的字段。此处省略了 `-` 等书写。
 
@@ -49,11 +49,12 @@ admin:
   - `friend`: 接收转发的 QQ
   - `group`: 接收转发的群
 
-| Name   | Type          | 可选字段                          | Description                                                   |
-| ------ | ------------- | --------------------------------- | ------------------------------------------------------------- |
-| listen | String        | “master”/“admin”/“friend”/“group” | 可以是字符串                                                  |
-| listen | Object        | friend/group                      | 可以下设 friend 和 group 字段，friend 和 group 下则为数组列表 |
-| target | String/Object |                                   | 同上                                                          |
+| Name     | Type          | 可选字段                          | Description                                                   |
+| -------- | ------------- | --------------------------------- | ------------------------------------------------------------- |
+| listen   | String        | “master”/“admin”/“friend”/“group” | 可以是字符串                                                  |
+| listen   | Object        | friend/group                      | 可以下设 friend 和 group 字段，friend 和 group 下则为数组列表 |
+| unlisten | String/Object | 同上                              | unlisten 与 listen 相反，代表不监听的意思                     |
+| target   | String/Object | 同上                              | 同上                                                          |
 
 ::: tip
 

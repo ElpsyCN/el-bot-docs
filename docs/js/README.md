@@ -1,7 +1,7 @@
 # el-bot
 
 [![docs](https://github.com/ElpsyCN/el-bot-docs/workflows/docs/badge.svg)](https://docs.bot.elpsy.cn/js/)
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/ElpsyCN/el-bot)](https://githu.com/ElpsyCN/el-bot)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/ElpsyCN/el-bot)](https://github.com/ElpsyCN/el-bot)
 [![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/ElpsyCN/el-bot/mirai-ts)](https://github.com/YunYouJun/mirai-ts)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ElpsyCN/el-bot)](https://github.com/ElpsyCN/el-bot)
 [![GitHub](https://img.shields.io/github/license/ElpsyCN/el-bot)](https://github.com/ElpsyCN/el-bot/blob/master/LICENSE)

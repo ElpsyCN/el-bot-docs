@@ -125,6 +125,22 @@ answer:
         text: 爪巴
 ```
 
+> 应答的内容实际是消息链（所以实质，你可以填写任何符合消息链格式的内容）
+
+譬如发送图片（返回随机 bing 壁纸）：
+
+> `https://images.weserv.nl/?url=` 用来代理图片
+
+```yaml
+answer:
+  - includes:
+      - bing
+      - 壁纸
+    reply:
+      - type: Image
+        url: https://images.weserv.nl/?url=https://bing.ioliu.cn/v1/rand
+```
+
 ## 转发
 
 譬如：你可以建立一个 `沙雕图转发群`（群成员为你和机器人），监听对象为该群，发送到该群的任何消息将会被转发至其他多个群或好友。
