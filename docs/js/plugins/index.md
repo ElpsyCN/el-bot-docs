@@ -2,7 +2,7 @@
 
 el-bot 使用了 [mirai-ts](https://github.com/YunYouJun/mirai-ts)。
 
-因此你在编写插件时，可以通过 `ctx.mirai.api` 的方式直接使用 mirai-ts 的 API 进行编写，同时不要处理登录、加载插件等问题。
+因此你在编写插件时，可以通过 `ctx.mirai.api` 的方式直接使用 mirai-ts 的 API 进行编写，同时不需要处理登录、加载插件等问题。
 
 mirai-ts 也提供了许多字符匹配、彩色日志等辅助小工具。
 
@@ -85,8 +85,10 @@ export default async function(ctx) {
 - `isListening(sender, listen)`: 传入 配置讲解 处 `listen` 的格式，可以快速判断是否在监听。
 - `sendMessageByConfig(messageChain, target)`: 传入 配置讲解处 `target` 的格式，可以快速发送给多个指定对象。
 
+> `@utils` 是 `el-bot/src/utils` 目录的别名，使用它而不是相对路径。
+
 ```js
-import { isListening, sendMessageByConfig } from "../../src/utils/message";
+import { isListening, sendMessageByConfig } from "@utils/message";
 
 const canForward = isListening(msg.sender, item.listen);
 if (canForward) {

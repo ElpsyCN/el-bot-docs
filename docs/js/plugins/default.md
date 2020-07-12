@@ -36,14 +36,14 @@ plugins:
 
 - `reply`: 类型
 
-| Name     | Type                              | Example | Description                                                                                                                     |
-| -------- | --------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| re       | Object                            | 见代码  | [正则表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)，包含 `pattern` 与 `flags` 属性 |
-| is       | String / Array                    | 见代码  | 类型为字符串时，代表消息与文本相同；类型为数组时，代表**或**（即只要有一个完全相同则触发 ）                                     |
-| includes | String / Array                    | 见代码  | 类型为字符串时，代表消息包含文本；类型为数组时，代表**与**（即同时包含，才会触发 ）                                             |
-| quote    | boolean                           | true    | 是否引用回复的消息内容                                                                                                          |
-| reply    | String / MessageType.MessageChain | 见代码  | 消息链 ，匹配则回复（你也可以直接写成文本）                                                                                     |
-| else     | String / MessageType.MessageChain | 见代码  | 非当前监听者时，匹配则回复（你也可以直接写成文本）                                                                              |
+| Name     | Type                                                                                                                      | Example | Description                                                                                                                     |
+| -------- | ------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| re       | Object                                                                                                                    | 见代码  | [正则表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)，包含 `pattern` 与 `flags` 属性 |
+| is       | String / Array                                                                                                            | 见代码  | 类型为字符串时，代表消息与文本相同；类型为数组时，代表**或**（即只要有一个完全相同则触发 ）                                     |
+| includes | String / Array                                                                                                            | 见代码  | 类型为字符串时，代表消息包含文本；类型为数组时，代表**与**（即同时包含，才会触发 ）                                             |
+| quote    | boolean                                                                                                                   | true    | 是否引用回复的消息内容                                                                                                          |
+| reply    | String / [MessageType.MessageChain](https://www.yunyoujun.cn/mirai-ts/interfaces/_index_d_.messagetype.messagechain.html) | 见代码  | 消息链 ，匹配则回复（你也可以直接写成文本）                                                                                     |
+| else     | String / MessageType.MessageChain                                                                                         | 见代码  | 非当前监听者时，匹配则回复（你也可以直接写成文本）                                                                              |
 
 <chat-panel title="聊天记录">
   <chat-message :id="910426929" nickname="云游君" >早上好</chat-message>
@@ -141,6 +141,19 @@ answer:
         url: https://images.weserv.nl/?url=https://bing.ioliu.cn/v1/rand
 ```
 
+你可以传入 API，来回复 API 中返回的数据：
+
+`data` 为默认的 API 返回的 JSON 数据对象名。
+
+```yaml
+answer:
+  # 晚安土味情话
+  - re: 晚安|哦呀斯密
+    quote: true
+    api: https://el-bot-api.vercel.app/api/wanan
+    reply: ${data[0]}
+```
+
 ## 转发
 
 譬如：你可以建立一个 `沙雕图转发群`（群成员为你和机器人），监听对象为该群，发送到该群的任何消息将会被转发至其他多个群或好友。
@@ -173,11 +186,14 @@ forward:
         - 123456
 ```
 
+> 支持集体撤回（误将某条消息转发至多个群时，撤回时同样可以撤回多个群的消息）
+
 ## RSS
 
 > 使用 [rss-parser](https://github.com/rbren/rss-parser) 解析
 
-`rss` 指令可显示当前订阅源，并立即抓取最新 RSS。
+私聊发送 `rss` 指令可显示当前所有订阅的 RSS 源，并立即抓取最新 RSS。
+在群中发送 `rss` 可查看对应群订阅的 RSS 源。
 
 抓取的 RSS 信息，将存储在 `el-bot/tmp/rss.json` 中。（默认只存储各 RSS 中第一条信息，以判断是否更新。你也可以删除该文件，以强制触发。）
 
