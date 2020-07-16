@@ -80,6 +80,14 @@ listen: group
 
 ```yaml
 listen:
+  - master
+  - admin
+  # 无论 QQ 号还是 QQ 群号
+  - 123456789
+```
+
+```yaml
+listen:
   friend:
     - 123456
   group:
