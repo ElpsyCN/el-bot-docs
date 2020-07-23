@@ -12,16 +12,17 @@ mirai-ts 也提供了许多字符匹配、彩色日志等辅助小工具。
 具体例子见下方。
 
 ::: tip
-如果你觉得某个插件的功能非常有用受众很广，可以考虑直接为 [el-bot](https://github.com/ElpsyCN/el-bot) 提 PR。
+如果你觉得某个功能非常有用受众很广，可以考虑直接为 [el-bot](https://github.com/ElpsyCN/el-bot) 提 PR。
 
-我们也建立了一个仓库 [el-bot-plugins](https://github.com/ElpsyCN/el-bot-plugins) 专门收集社区中有趣的插件（对部分群体有用但不是必须的）。
+我们也建立了一个仓库 [el-bot-plugins](https://github.com/ElpsyCN/el-bot-plugins) 专门收集有趣的插件（对部分群体有用但不是必须的）。
 :::
 
-插件主要分为三种类型：
+插件主要分这几种类型：
 
-- `default`: 内置插件
-- `community`: 社区插件
-- `custom`: 自定义插件
+- `default`: 内置插件 `../plugins/rss`
+- `official`: 官方插件 `@el-bot/plugin-niubi`
+- `community`: 社区插件 `el-bot-plugin-xxx`（如果您放在个人仓库中并自行发布为 npm 包，请遵循该命名规范）
+- `custom`: 自定义插件 `./xxx/xxx`
 
 ## 如何编写
 
@@ -85,41 +86,19 @@ export default async function(ctx) {
 - `isListening(sender, listen)`: 传入 配置讲解 处 `listen` 的格式，可以快速判断是否在监听。
 - `sendMessageByConfig(messageChain, target)`: 传入 配置讲解处 `target` 的格式，可以快速发送给多个指定对象。
 
-> `@utils` 是 `el-bot/src/utils` 目录的别名，使用它而不是相对路径。
-
 ```js
-import { isListening, sendMessageByConfig } from "@utils/message";
-
-const canForward = isListening(msg.sender, item.listen);
+const canForward = ctx.status.isListening(msg.sender, item.listen);
 if (canForward) {
-  sendMessageByConfig(msg.messageChain, item.target);
+  ctx.sender.sendMessageByConfig(msg.messageChain, item.target);
 }
 ```
 
 ### 插件信息
 
-使用 `npm init` 来初始化你的 `package.json` 信息。
+> 标准的插件格式请参照 [el-bot-plugins](https://github.com/ElpsyCN/el-bot-plugins) 说明。（如果你只是自行使用，大可无视。）
 
-并填写上名称、版本、描述、作者、协议等，这些将会在加载插件时，作为插件的信息记录。
-
-```json
-{
-  "name": "niubi",
-  "version": "0.0.2",
-  "description": "夸人牛逼",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo '@某人 nb'"
-  },
-  "author": "YunYouJun",
-  "license": "AGPL-3.0"
-}
-```
-
-> 你还可以在对应插件目录下编写一个 README.md 文档，记录如何使用。
-
-如果你想将插件提交到 [社区](https://github.com/ElpsyCN/el-bot-plugins) 中，`package.json` 与 `README.md` 是必不可少的。
-更方便别人知道如何使用它。
+如果你想将插件提交到 [官方插件](https://github.com/ElpsyCN/el-bot-plugins) 中，`package.json` 与 `README.md` 是必不可少的。
+这更方便别人知道如何使用它。
 
 ## 加载插件
 
@@ -140,13 +119,21 @@ plugins:
 
 mirai-ts 实现了一个事件队列，对应的监听事件将会推入对应事件的列表，并在收到对应类型的消息时执行。
 
-自定义插件将会在默认插件之后进入事件队列，自定义插件的加载顺序取决于你的配置顺序。
+自定义插件将会在默认插件之后进入事件队列，
+
+任何插件的加载顺序取决于你的配置顺序。
+
+### 默认插件
+
+即随 el-bot 默认加载的插件列表。
 
 你可以覆盖 `plugins.default` 来只加载你想加载的默认插件。
 
-### 社区插件
+### 官方插件
 
-[el-bot-plugins](https://github.com/ElpsyCN/el-bot-plugins) 是 el-bot 的社区插件集中地，它提供了许多有趣的插件。
+[el-bot-plugins](https://github.com/ElpsyCN/el-bot-plugins) 是 el-bot 的官方插件集中地，它提供了许多有趣的插件。
+
+该部分插件将由我们进行审核，并统一发布至 npm 中 `@el-bot` 的命名空间下。（如：`@el-bot/plugin-niubi`）
 
 插件的使用方式，见各插件的 `README.md`。
 
@@ -162,14 +149,28 @@ npm run install:plugins
 
 ```yaml
 plugins:
-  community:
+  official:
     - niubi
 ```
 
-#### 更新社区插件
+### 社区插件
 
-```yaml
-npm run pull:plugins
+社区插件即您自行编写并发布的插件。
+
+如果您希望被更多人检索到，请遵循 `el-bot-plugin-xxx` 的命名规范。
+
+```sh
+npm install el-bot-plugin-xxx
 ```
 
-> 或者自己进入对应目录 `cd packages/el-bot-plugins`，`git pull`。
+### 自定义插件
+
+自定义插件即您自行编写，且暂不打算发布的插件。
+
+引入方式是您的相对路径。
+
+```yml
+plugins:
+  custom:
+    - ./xxx/yyy
+```

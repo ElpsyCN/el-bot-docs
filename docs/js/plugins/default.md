@@ -2,7 +2,7 @@
 
 默认插件也就是 el-bot 默认携带的功能。
 
-> 更多插件请见社区插件库 [el-bot-plugins](https://github.com/ElpsyCN/el-bot-plugins)
+> 更多插件请见官方插件库 [el-bot-plugins](https://github.com/ElpsyCN/el-bot-plugins)
 
 你也可以在你的**自定义**配置文件中如下设置，来只启用某几个默认的插件。
 
