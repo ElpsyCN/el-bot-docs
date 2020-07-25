@@ -139,13 +139,12 @@ mirai-ts 实现了一个事件队列，对应的监听事件将会推入对应�
 
 同时也欢迎你为其提交插件，来给更多人使用。
 
-```sh
-npm run install:plugins
-# 即 clone 插件仓库放到 el-bot 的 packages 目录下
-# git clone https://github.com/ElpsyCN/el-bot-plugins packages/el-bot-plugins
-```
-
 譬如加载 `niubi` 插件：
+
+```sh
+npm install @el-bot/plugin-niubi
+# yarn add @el-bot/plugin-niubi
+```
 
 ```yaml
 plugins:

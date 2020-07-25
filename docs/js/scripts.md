@@ -1,20 +1,6 @@
 # 常用脚本
 
-## 启动
-
-等价于同时启动 mirai 和 el-bot。
-
-```sh
-npm run start
-```
-
-## 更新
-
-更新 el-bot、插件、配置（如果你的自定义配置也是 Git 仓库的话），并安装依赖。
-
-```sh
-npm run update
-```
+请参见 [el-bot-template](https://github.com/ElpsyCN/el-bot-template)。
 
 ## Webhook
 
@@ -34,5 +20,4 @@ npm run update
 
 ### Command
 
-- `npm run webhook`: 只监听配置更新
-- `npm run webhook:all`: 同时监听配置更新和机器人仓库的更新推送
+- `npm run webhook`: 监听并拉取更新
