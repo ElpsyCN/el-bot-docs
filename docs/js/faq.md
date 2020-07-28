@@ -1,3 +1,5 @@
 # 常见问题
 
-- [在某些情况下无法同步好友消息 | mamoe/mirai](https://github.com/mamoe/mirai/issues/249)
+[![GitHub issues](https://img.shields.io/github/issues/ElpsyCN/el-bot)](https://github.com/ElpsyCN/el-bot/issues)
+
+> 请通过 [el-bot Issues](https://github.com/ElpsyCN/el-bot/issues) 进行反馈。

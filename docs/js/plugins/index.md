@@ -28,6 +28,8 @@ mirai-ts 也提供了许多字符匹配、彩色日志等辅助小工具。
 
 我将示范如何新建一个名为 `test` 的自定义插件。
 
+> 你也可以使用 typescript 编写你的插件。
+
 在 `config/custom` 下新建 `plugins` 文件夹，新建 `test.js` 文件。
 
 > **你的文件名将是你的插件名。**
@@ -49,8 +51,8 @@ test.js
 ```js
 // 这里因为后续用到了异步编程g关键字 await，如果你用不着，此处无需添加 async 关键字。
 // 而应该使用
-// export default function(ctx) {
-export default async function(ctx) {
+// module.exports = function(ctx) {
+module.exports = async function(ctx) {
   const mirai = ctx.mirai;
 
   // 对收到的消息进行处理
@@ -59,8 +61,6 @@ export default async function(ctx) {
   mirai.on("message", (msg) => {
     console.log("on message");
     console.log(msg);
-    // 复读
-    msg.reply(msg.messageChain);
   });
 
   // 调用 mirai-ts 封装的 mirai-api-http 发送指令
@@ -77,6 +77,18 @@ export default async function(ctx) {
     const text = `${operator.memberName} 撤回了一条消息，并拜托你不要再发色图了。`;
     console.log(text);
     mirai.api.sendGroupMessage(text, operator.group.id);
+  });
+};
+```
+
+test.ts
+
+```ts
+export default function(ctx) {
+  const mirai = ctx.mirai;
+  mirai.on("message", (msg) => {
+    console.log("on message");
+    console.log(msg);
   });
 }
 ```

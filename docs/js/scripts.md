@@ -1,10 +1,30 @@
 # 常用脚本
 
-请参见 [el-bot-template](https://github.com/ElpsyCN/el-bot-template)。
+请参见 [el-bot-template/package.json](https://github.com/ElpsyCN/el-bot-template/blob/master/package.json) `scripts` 字段。
+
+## 全局安装
+
+你也可以通过全局安装 el-bot 的方式以使用 el-bot 的命令行。
+
+```sh
+npm install -g el-bot
+# yarn global add el-bot
+```
+
+```sh
+# 安装 mirai
+el install mirai
+
+# 启动 mirai
+el start mirai
+
+# 启动机器人
+el bot
+```
 
 ## Webhook
 
-懂得人都懂（
+推送自己的机器人时，服务器将监听 GitHub 仓库消息，并拉取代码重启机器人。
 
 ### 配置
 

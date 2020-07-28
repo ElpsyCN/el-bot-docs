@@ -5,7 +5,8 @@
 你需要自行使用 [miraiOK](https://github.com/LXY1226/miraiOK) 启动 [mirai](https://github.com/mamoe/mirai) 与 [mirai-api-http](https://github.com/mamoe/mirai-api-http) 插件。
 
 ::: tip
-你也可以直接参考或使用 [el-bot-template](https://github.com/ElpsyCN/el-bot-template)。它内置了如何安装与启动 mirai 的脚本。
+你也可以直接参考或使用 [el-bot-template](https://github.com/ElpsyCN/el-bot-template)。（推荐，仅阅读 README 即可快读开始。）
+即便你不用它，你也可以参考一下它的 [package.json](https://github.com/ElpsyCN/el-bot-template/blob/master/package.json) 配置启动脚本。
 :::
 
 ```sh
@@ -15,7 +16,7 @@ npm install el-bot
 
 ::: tip
 
-因为国内速度较慢，你可以考虑切换为淘宝镜像源：
+因为国内速度较慢，你可以考虑切换为淘宝镜像源（但包的同步，可能有所延迟）：
 
 ```sh
 npm config set registry https://registry.npm.taobao.org
@@ -23,21 +24,39 @@ npm config set registry https://registry.npm.taobao.org
 
 :::
 
+### 目录结构
+
+默认目录结构如下：
+
+```txt
+.
+├── LICENSE
+├── README.md
+├── bot
+│   ├── README.md
+│   └── index.js
+├── el
+│   ├── README.md
+│   ├── index.js
+│   └── index.yml
+├── package.json
+│   ...
+```
+
 ```js
-const Bot = require("el-bot").default
-const el = require("../el")
+const Bot = require("el-bot");
 
 const bot = new Bot({
   qq: 114514,
   setting: {
-    host: 'localhost',
+    host: "localhost",
     port: 4859,
-    authKey: 'el-psy-congroo',
+    authKey: "el-psy-congroo",
     enableWebsocket: true,
   },
   // config: ...
-})
-bot.start()
+});
+bot.start();
 ```
 
 So easy! Right?
@@ -56,15 +75,15 @@ So easy! Right?
 
 ```txt
 .
-├── index.js
-└── index.yml
+├── el
+    ├── index.js
+    └── index.yml
 ```
 
 ```js
-  
-require("dotenv").config()
-const { resolve } = require("path")
-const config = require("el-bot/dist/utils/config")
+require("dotenv").config();
+const { resolve } = require("path");
+const { utils } = require("el-bot");
 
 module.exports = {
   qq: parseInt(process.env.BOT_QQ),
@@ -72,9 +91,9 @@ module.exports = {
     enableWebsocket: true,
   },
   config: {
-    plugins: config.parse(resolve(__dirname, "./index.yml")),
-  }
-}
+    plugins: utils.config.parse(resolve(__dirname, "./index.yml")),
+  },
+};
 ```
 
 **编写配置时，请务必注意你的层级和缩进。**
