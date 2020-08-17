@@ -30,11 +30,11 @@ mirai-ts 也提供了许多字符匹配、彩色日志等辅助小工具。
 
 > 你也可以使用 typescript 编写你的插件。
 
-在 `config/custom` 下新建 `plugins` 文件夹，新建 `test.js` 文件。
+新建 `plugins/custom` 文件夹（其实你也可以随便放，路径写对就行），新建 `test.js` 文件。
 
 > **你的文件名将是你的插件名。**
 
-或者新建 `config/custom/plugins/test` 文件夹，新建 `index.js` 文件。（推荐，方便管理单个含有较多内容的插件）
+或者新建 `/plugins/custom/test` 文件夹，新建 `index.js` 文件。（推荐，方便管理单个含有较多内容的插件）
 
 默认传入机器人上下文 ctx。
 
@@ -114,7 +114,7 @@ if (canForward) {
 
 ## 加载插件
 
-编写完，你还需要在你的自定义配置文件 `config/custom/index.yml` 中加载它。
+编写完，你还需要在你的自定义配置文件 `el/index.yml` 中加载它。
 
 > 记得重启。
 
@@ -178,7 +178,7 @@ npm install el-bot-plugin-xxx
 
 自定义插件即您自行编写，且暂不打算发布的插件。
 
-引入方式是您的相对路径。
+引入方式是您相对主目录的相对路径。
 
 ```yml
 plugins:

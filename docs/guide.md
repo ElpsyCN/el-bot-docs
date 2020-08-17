@@ -1,7 +1,5 @@
 # 指南
 
-## 很遗憾，由于种种原因，mirai 已经跑路，本项目也将停止维护。
-
 ## 使用
 
 你需要自行使用 [miraiOK](https://github.com/LXY1226/miraiOK) 启动 [mirai](https://github.com/mamoe/mirai) 与 [mirai-api-http](https://github.com/mamoe/mirai-api-http) 插件。
