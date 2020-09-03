@@ -49,9 +49,15 @@ mirai-ts 也提供了许多字符匹配、彩色日志等辅助小工具。
 test.js
 
 ```js
-// 这里因为后续用到了异步编程g关键字 await，如果你用不着，此处无需添加 async 关键字。
-// 而应该使用
-// module.exports = function(ctx) {
+// 使用 JSDoc 可以获取 el-bot 及 mirai-ts 的代码提示
+const { default: Bot } = require("el-bot");
+
+/**
+ * 这里因为后续用到了异步编程关键字 await，如果你用不着，此处无需添加 async 关键字。
+ * 而应该使用
+ * module.exports = function(ctx) {
+ * @param {Bot} ctx
+ */
 module.exports = async function(ctx) {
   const mirai = ctx.mirai;
 
