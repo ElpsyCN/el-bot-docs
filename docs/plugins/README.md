@@ -1,4 +1,4 @@
-# 插件系统
+# 使用说明
 
 el-bot 使用了 [mirai-ts](https://github.com/YunYouJun/mirai-ts)。
 
