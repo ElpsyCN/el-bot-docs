@@ -1,10 +1,13 @@
 # el-bot-docs
 
+[![docs](https://github.com/ElpsyCN/el-bot-docs/workflows/docs/badge.svg)](https://docs.bot.elpsy.cn)
+
 el-bot 的说明文档集中处
 
 > el 是什么？
-> electronic: 电子的
-> elegant: 优雅的
+> element: 元素，无尽的世界线
+> elegant: 优雅，不死的凤凰鸟
+> electronic: 电子，闪光的指压师
 
 一个优雅的电子机器人，通过简单的配置便可以实现你的大部分需求。
 

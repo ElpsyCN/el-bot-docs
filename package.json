@@ -1,6 +1,6 @@
 {
   "name": "el-bot-docs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Docs for el-bot.",
   "main": "index.js",
   "repository": "https://github.com/ElpsyCN/el-bot-docs.git",

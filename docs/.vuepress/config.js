@@ -70,28 +70,9 @@ module.exports = {
       "logger",
       "/scripts",
       "/faq",
-      // {
-      //   title: "el-bot",
-      //   path: "/usage/",
-      //   collapsable: false,
-      //   sidebarDepth: 1,
-      //   children: [
-      //     // "/js/config",
-      //     "/usage/cli",
-      //     // "/js/plugins/",
-      //     // "/js/plugins/default",
-      //     // "/js/scripts",
-      //     // "/js/faq",
-      //   ],
-      // },
       "/ecosystem",
       "/about",
     ],
-    // sidebar: [
-
-    //   },
-    //   "/about",
-    // ],
   },
   plugins: [
     "@vuepress/back-to-top",
