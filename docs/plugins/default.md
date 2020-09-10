@@ -286,6 +286,7 @@ rss:
 - `interval`: 时间间隔，单位为 ms
 - `count`: 允许发送消息数量
 - `sender`: 发送者
+  - `interval`: 默认 600000，即超过十分钟后重置
   - `maximum`: 最大连续触发次数，超过将会禁言触发者（需要有管理员权限）
   - `tooltip`: 禁言时的提示
   - `time`: 禁言时长
@@ -295,6 +296,7 @@ limit:
   interval: 20000
   count: 10
   sender:
+    interval: 600000
     # 连续次数
     maximum: 3
     tooltip: 我生气了！

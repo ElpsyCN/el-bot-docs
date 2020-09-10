@@ -1,5 +1,31 @@
 # 关于我们
 
+## 与 [koishi](https://github.com/koishijs/koishi) 的区别
+
+开坑时，我确实不知道 koishi 这一框架，且由于~~白嫖~~心理，最初开发便没有使用 coolq 的打算。
+
+koishi 基于 coolq 的 CQHTTP ，而 el-bot 基于 mirai 的 [mirai-api-http](https://github.com/project-mirai/mirai-api-http) 。
+
+此后因为晨风作者被捕一事，CoolQ 作者也宣布停止运营。
+所以 koishi 现在本质使用的是 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) / [cqhttp-mirai](https://github.com/yyuueexxiinngg/cqhttp-mirai) 等与 coolq API 兼容的解决方案。
+
+> 详情见 [koishi#平台支持](https://github.com/koishijs/koishi#%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81)
+
+el-bot 则自始自终没有打算兼容 coolq 且没有 coolq 的历史包袱，所以均直接使用 mirai-api-http 的原生 API，基于的 [mirai-ts](https://github.com/YunYouJun/mirai-ts) 所有 API 均与官方 URL 命名保持一致。
+
+当前 koishi 相比 el-bot 的生态功能要完善许多，而 el-bot 则没有兼容包袱，所以无需额外安装 cqhttp-mirai 或 go-cqhttp 或 [mirai-native](https://github.com/iTXTech/mirai-native)，SDK 直接与 mirai-api-http 进行交互，新特性的支持也可能更快一些。
+
+koishi 的自定义程度很高，有一定的学习成本，而我本身开发 el-bot 希望能作为辅助工具更多一些，也可以通过 yml 配置各功能，大部分依赖使用的是 npm 社区已有的一些轮子。（~~自己又可以偷懒，熟悉的人又可以直接上手，不熟悉的同学学习一下以后别的项目也可以用，岂不是一举两得。~~）
+
+譬如：
+
+- koishi 提供了 mongodb 与 mysql 的两者数据库插件，并对其进行了一层包裹，需要简单的学习，因此可以实现数据插入删除的兼容。而 el-bot 默认内置了 mongodb 作为数据库（可决定是否启用），并直接暴露 [MongoClient](https://github.com/mongodb/node-mongodb-native) 的对象以供用户操作，同时统一使用 mongodb 以避免多数据库造成的困惑。
+- koishi 自己实现了 schedule 插件，el-bot 使用 [node-schedule](https://github.com/node-schedule/node-schedule) 实现。
+- koishi 自己实现了一套 cli，el-bot 直接使用 [cac](https://github.com/cacjs/cac) 实现。
+- ...
+
+我能想到的大致区别就是这个吧，（~~至少我是这么认为的~~），还请看官自行取舍。
+
 ## 机关
 
 本组织的名字取自「[命运石之门](https://zh.moegirl.org/命运石之门)」中男主[冈部伦太郎](https://zh.moegirl.org/zh-hans/冈部伦太郎)离别时的常用厨二病用语「El Psy Congroo」。

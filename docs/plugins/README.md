@@ -118,6 +118,27 @@ if (canForward) {
 如果你想将插件提交到 [官方插件](https://github.com/ElpsyCN/el-bot-plugins) 中，`package.json` 与 `README.md` 是必不可少的。
 这更方便别人知道如何使用它。
 
+#### package.json
+
+`el-bot.db` 设置为 `true`，代表需要依赖数据库。
+
+```js
+{
+  "name": "blacklist",
+  "private": "true",
+  "version": "0.0.1",
+  "description": "黑名单",
+  "el-bot": {
+    "db": true
+  },
+  "author": {
+    "name": "YunYouJun",
+    "url": "https://www.yunyoujun.cn",
+    "email": "me@yunyoujun.cn"
+  }
+}
+```
+
 ## 加载插件
 
 编写完，你还需要在你的自定义配置文件 `el/index.yml` 中加载它。
