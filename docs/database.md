@@ -19,6 +19,33 @@
 
 ## 使用
 
+添加环境变量，因为这是敏感信息，你最好不要直接书写在你的文件中。
+
+```txt
+# .env
+BOT_DB_URI=mongodb+srv://你的用户名:你的密码@你的地址
+```
+
+配置数据库配置项
+
+- `enable`: 是否启用
+- `uri`: 你的 MongoDB 链接，注意是 uri（因为我看官方示例都是用这个）
+- `analytics`: 是否开启统计（当前只有简单的统计用户触发次数与上一次的触发时间）
+
+```js
+// el/index.js
+module.exports = {
+  // ...
+  db: {
+    enable: true,
+    uri: process.env.BOT_DB_URI,
+    analytics: true,
+  },
+};
+```
+
+调用数据库，db 与 [MongoClient](https://github.com/mongodb/node-mongodb-native#connect-to-mongodb) 相对应，所有的 API 直接使用官方 API 即可。
+
 ```js
 module.exports = (ctx) => {
   const { db } = ctx;

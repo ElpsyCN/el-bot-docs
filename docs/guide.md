@@ -93,7 +93,7 @@ So easy! Right?
 
 ## 配置
 
-你可以使用 JSON 编写配置文件，也可以考虑以下简洁而强大的 [YAML](https://baike.baidu.com/item/YAML/1067697)。
+你可以使用 JSON 编写配置文件，也可以考虑一下简洁而强大的 [YAML](https://baike.baidu.com/item/YAML/1067697)。
 
 > [YAML 语言教程](https://www.ruanyifeng.com/blog/2016/07/yaml.html)
 
