@@ -1,5 +1,9 @@
 # 终端命令
 
+基于 [commander.js](https://github.com/tj/commander.js/) 实现，因此你也可以遵循 commander 文档来自定义它。
+
+> el-bot@version >= 0.5.0
+
 ```sh
 el <command> [options]
 ```
@@ -33,11 +37,46 @@ el <command> [options]
 
 - `echo` \<`message`\>: 回声
 - `plugins`: 显示当前加载的插件列表（包括版本及描述）
-- `jobs`: 显示可执行的自定义任务
-- `sleep` : 睡眠，此时将只监听终端命令
+  <!-- - `jobs`: 显示可执行的自定义任务 -->
+  <!-- - `sleep` : 睡眠，此时将只监听终端命令 -->
 - `restart` : 重启
 
+## 自定义终端
+
+一个简单的示例
+
+> 更多属性/参数请参见 [commander.js](https://github.com/tj/commander.js/) 文档
+
+::: tip
+本质上 el-bot 基于 commander 修改了其原型链，使得原本在终端输出的内容，直接通过机器人返回。并添加了一些默认的指令。
+:::
+
+```js
+module.exports = (ctx) => {
+  const { cli } = ctx;
+
+  cli
+    .command("test")
+    .description("一个测试指令")
+    .option("-l, --list")
+    .action((options) => {
+      if (options.list) {
+        ctx.reply("列表？");
+      } else {
+        ctx.reply("没有输入选项");
+      }
+    });
+};
+```
+
+<chat-panel title="聊天记录">
+  <chat-message :id="910426929" nickname="云游君">el test -l</chat-message>
+  <chat-message :id="712727945" nickname="小云">列表？</chat-message>
+</chat-panel>
+
 ## 自定义任务
+
+> 开发中...
 
 你可以预定义一些脚本，让其可以通过机器人指令执行。
 

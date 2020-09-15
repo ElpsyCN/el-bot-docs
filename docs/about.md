@@ -21,7 +21,7 @@ koishi 的自定义程度很高，有一定的学习成本，而我本身开发 
 
 - koishi 提供了 mongodb 与 mysql 的两者数据库插件，并对其进行了一层包裹，需要简单的学习，因此可以实现数据插入删除的兼容。而 el-bot 默认内置了 mongodb 作为数据库（可决定是否启用），并直接暴露 [MongoClient](https://github.com/mongodb/node-mongodb-native) 的对象以供用户操作，同时统一使用 mongodb 以避免多数据库造成的困惑。
 - koishi 自己实现了 schedule 插件，el-bot 使用 [node-schedule](https://github.com/node-schedule/node-schedule) 实现。
-- koishi 自己实现了一套 cli，el-bot 直接使用 [cac](https://github.com/cacjs/cac) 实现。
+- koishi 自己实现了一套 cli，el-bot 则基于 [commander.js](https://github.com/tj/commander.js) 实现。
 - ...
 
 我能想到的大致区别就是这个吧，（~~至少我是这么认为的~~），还请看官自行取舍。

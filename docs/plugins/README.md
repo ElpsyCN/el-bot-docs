@@ -101,7 +101,7 @@ export default function(ctx) {
 
 ### 辅助函数
 
-- `isListening(sender, listen)`: 传入 配置讲解 处 `listen` 的格式，可以快速判断是否在监听。
+- `isListening(sender, listen)`: 传入 [配置讲解](https://docs.bot.elpsy.cn/config.html#%E7%9B%91%E5%90%AC%E4%B8%8E%E7%9B%AE%E6%A0%87) 处 `listen` 的格式，可以快速判断是否在监听。
 - `sendMessageByConfig(messageChain, target)`: 传入 配置讲解处 `target` 的格式，可以快速发送给多个指定对象。
 
 ```js
