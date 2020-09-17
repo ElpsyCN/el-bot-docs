@@ -10,9 +10,14 @@
 
 因此，你应当有自行启动 mirai 的能力。
 
+> 在使用 el-bot 前，你应当先确定 mirai-api-http 已成功加载。一个简单的确认方法是访问 `localhost:4859/about` 查看是否有信息返回。
+
 ---
 
-- [mirai-ts](https://github.com/YunYouJun/mirai-ts) 是我用 TypeScript 编写，并编译成 JavaScript 以通过 JavaScript 调用 mirai-api-http 的开发工具，包裹了所有 mirai-api-http 支持的请求，并提供了响应注释，可以在代码编辑器中（如 VS Code）中进行代码提示，即 SDK。
+[![npm](https://img.shields.io/npm/v/mirai-ts?logo=npm&label=mirai-ts&color=blue)](https://www.npmjs.com/package/mirai-ts)
+[![npm](https://img.shields.io/npm/v/el-bot?logo=npm&label=el-bot)](https://www.npmjs.com/package/el-bot)
+
+- [mirai-ts](https://github.com/YunYouJun/mirai-ts) 是用 TypeScript 编写，并编译成 JavaScript 以通过 JavaScript 调用 mirai-api-http 的开发工具，即 SDK，包裹了所有 mirai-api-http 支持的请求，并提供了相应注释，可以在代码编辑器中（如 VS Code）中进行代码提示。
 - [el-bot](https://github.com/YunYouJun/el-bot) 是我基于 mirai-ts 编写的一个跨平台（需要 [Node.js](https://nodejs.org/en/) 环境），可配置、可自定义插件的机器人框架。
 - [el-bot-template](https://github.com/ElpsyCN/el-bot-template) 是使用 el-bot 的一个简单示例。
 
