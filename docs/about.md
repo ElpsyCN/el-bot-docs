@@ -1,5 +1,21 @@
 # 关于我们
 
+## mirai & mirai-console & mirai-api-http & mirai-ts & el-bot 之间的关系
+
+- [mirai](https://github.com/mamoe/mirai) 是一切的基础，使用 kotlin 编写，可跨平台（需要有 Java 环境），提供 QQ 协议的机器人库。
+- [mirai-console](https://github.com/mamoe/mirai-console) 是 mirai 控制台的服务端，用于启动 mirai，并加载插件。
+- [mirai-api-http](https://github.com/project-mirai/mirai-api-http) 是 mirai-console 的一个插件，用于提供 http api，以供任意语言扩展。
+
+以上三者相当于开发环境，你可以使用 [miraiOK](https://github.com/LXY1226/miraiOK) 或 [mirua](https://github.com/zkonge/mirua) 或 `java -jar` 等其他各式各样的方法来启动它，相关内容与本项目无关。
+
+因此，你应当有自行启动 mirai 的能力。
+
+---
+
+- [mirai-ts](https://github.com/YunYouJun/mirai-ts) 是我用 TypeScript 编写，并编译成 JavaScript 以通过 JavaScript 调用 mirai-api-http 的开发工具，包裹了所有 mirai-api-http 支持的请求，并提供了响应注释，可以在代码编辑器中（如 VS Code）中进行代码提示，即 SDK。
+- [el-bot](https://github.com/YunYouJun/el-bot) 是我基于 mirai-ts 编写的一个跨平台（需要 [Node.js](https://nodejs.org/en/) 环境），可配置、可自定义插件的机器人框架。
+- [el-bot-template](https://github.com/ElpsyCN/el-bot-template) 是使用 el-bot 的一个简单示例。
+
 ## 与 [koishi](https://github.com/koishijs/koishi) 的区别
 
 开坑时，我确实不知道 koishi 这一框架，且由于~~白嫖~~心理，最初开发便没有使用 coolq 的打算。
