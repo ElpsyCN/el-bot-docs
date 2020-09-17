@@ -10,7 +10,14 @@
 
 因此，你应当有自行启动 mirai 的能力。
 
-> 在使用 el-bot 前，你应当先确定 mirai-api-http 已成功加载。一个简单的确认方法是访问 `localhost:4859/about` 查看是否有信息返回。
+::: warning
+在使用 el-bot 前，你应当先确定 mirai-api-http 已成功加载。一个简单的确认方法是访问 `localhost:4859/about` 查看是否有信息返回。
+:::
+
+::: tip
+端口号可能由于你的配置而有所不同。mirai-api-http 的默认端口为 `8080`。
+以避免冲突（一些程序也会喜欢默认使用 `8080` 端口），el-bot-template 中默认将 mirai-api-http 的端口配置为 `4859`，这取自于命运石之门世界线变动率小数点的后四位。
+:::
 
 ---
 
