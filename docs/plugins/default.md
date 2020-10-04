@@ -10,7 +10,6 @@
 plugins:
   default:
     - answer
-    - cli
     # - forward
     # - rss
 ```
@@ -21,18 +20,7 @@ plugins:
 其中 `listen` 与 `target` 分别代表监听对象和目标对象，是很多插件的通用配置属性。
 :::
 
-## 终端
-
-> 这里的终端并非指传统的终端命令行。而是你和机器人文本信息的命令交互。  
-> 本质是将终端命令从控制台移到了 QQ。
-
-没错，实际上终端也是一个插件。
-
-但现在基本为默认功能。还没想好是否和如何开放自定义配置。
-
-咕咕咕！
-
-## 应答
+## 应答 answer
 
 - `reply`: 类型
 
@@ -43,7 +31,7 @@ plugins:
 | includes | String / Array                                                                                                            | 见代码  | 类型为字符串时，代表消息包含文本；类型为数组时，代表**与**（即同时包含，才会触发 ）                                             |
 | at       | boolean                                                                                                                   | true    | 是否只有被 @ 时才回复 （默认不需要）                                                                                            |
 | quote    | boolean                                                                                                                   | true    | 是否引用回复的消息内容 （默认不引用）                                                                                           |
-| reply    | String / [MessageType.MessageChain](https://www.yunyoujun.cn/mirai-ts/interfaces/_index_d_.messagetype.messagechain.html) | 见代码  | 消息链 ，匹配则回复（你也可以直接写成文本）                                                                                     |
+| reply    | String / [MessageType.MessageChain](https://www.yunyoujun.cn/mirai-ts/interfaces/_index_d_.messagetype.messagechain.html) | 见代码  | 消息链 ，匹配则回复（你也可以直接写成文本）如果包含如换行符等特殊字符，请用 `""` 包裹                                           |
 | else     | String / MessageType.MessageChain                                                                                         | 见代码  | 非当前监听者时，匹配则回复（你也可以直接写成文本）                                                                              |
 
 <chat-panel title="聊天记录">
