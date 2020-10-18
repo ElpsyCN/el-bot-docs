@@ -68,7 +68,7 @@ module.exports = {
       },
       "/database",
       "logger",
-      "/scripts",
+      "/extend",
       "/faq",
       "/ecosystem",
       "/about",

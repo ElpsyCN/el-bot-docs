@@ -1,5 +1,8 @@
 # 终端命令
 
+> 这里的终端并非指传统的终端命令行。而是你和机器人文本信息的命令交互。  
+> 本质是将终端命令从控制台移到了 QQ。
+
 基于 [commander.js](https://github.com/tj/commander.js/) 实现，因此你也可以遵循 commander 文档来自定义它。
 
 > el-bot@version >= 0.5.0
