@@ -29,7 +29,7 @@ module.exports = {
   title: "El Bot Docs",
   themeConfig: {
     logo: "/logo.png",
-    repo: "ElpsyCN/el-bot-docs",
+    repo: "YunYouJun/el-bot",
     docsDir: "docs",
     editLinks: true,
     smoothScroll: true,
