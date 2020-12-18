@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo.png
 heroText: el-bot
-tagline: 基于 Mirai 的可配置 QQ 机器人
+tagline: 基于 Mirai 的可配置 QQ 机器人框架
 actionText: 快速上手 →
 actionLink: /guide/
 features:

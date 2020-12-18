@@ -6,7 +6,9 @@
 - [mirai-console](https://github.com/mamoe/mirai-console) 是 mirai 控制台的服务端，用于启动 mirai，并加载插件。
 - [mirai-api-http](https://github.com/project-mirai/mirai-api-http) 是 mirai-console 的一个插件，用于提供 http api，以供任意语言扩展。
 
-以上三者相当于开发环境，你可以使用 [miraiOK](https://github.com/LXY1226/miraiOK) 或 [mirua](https://github.com/zkonge/mirua) 或 `java -jar` 等其他各式各样的方法来启动它，相关内容与本项目无关。
+以上三者相当于开发环境，你可以使用 [mirai-console-loader](https://github.com/iTXTech/mirai-console-loader) 或 [miraiOK](https://github.com/LXY1226/miraiOK) 或 [mirua](https://github.com/zkonge/mirua) 或 `java -jar` 等其他各式各样的方法来启动它，相关内容与本项目无关。
+
+> 推荐使用官方启动器 [mirai-console-loader](https://github.com/iTXTech/mirai-console-loader) 自行启动 [mirai](https://github.com/mamoe/mirai)（v1.0 以上） 与 [mirai-api-http](https://github.com/mamoe/mirai-api-http) 插件（v1.9.0 以上）。
 
 因此，你应当有自行启动 mirai 的能力。
 

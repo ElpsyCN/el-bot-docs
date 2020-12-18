@@ -53,7 +53,7 @@ el-bot 展示了整个 mirai-ts 的使用流程，并内置了一些如自动应
 
 ## 安装
 
-你需要自行使用 [miraiOK](https://github.com/LXY1226/miraiOK) 或其他方法启动 [mirai-console](https://github.com/mamoe/mirai-console) 及其插件 [mirai-api-http](https://github.com/mamoe/mirai-api-http)。
+mirai 1.0 版本以上推荐使用官方启动器 [mirai-console-loader](https://github.com/iTXTech/mirai-console-loader) 自行启动 [mirai](https://github.com/mamoe/mirai) 与 [mirai-api-http](https://github.com/mamoe/mirai-api-http) 插件。
 
 ```sh
 npm install el-bot
@@ -70,7 +70,7 @@ npm config set registry https://registry.npm.taobao.org
 
 :::
 
-目录结构请参考 [el-bot-template](https://github.com/ElpsyCN/el-bot-template) 或直接使用它生成你的机器人。
+目录结构请参考 [el-bot-template](https://github.com/ElpsyCN/el-bot-template) ![GitHub package.json version](https://img.shields.io/github/package-json/v/elpsycn/el-bot-template) 或直接使用它生成你的机器人。
 
 ```js
 // index.js
