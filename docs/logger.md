@@ -1,5 +1,7 @@
 # 日志系统
 
+日志系统使用 [winston](https://github.com/winstonjs/winston) 实现。
+
 ```js
 const { default: Bot } = require("el-bot");
 /*
@@ -12,7 +14,7 @@ module.exports = (ctx) => {
 
 ```sh
 # 输出消息
-[SUCCESS] 整挺好！
+[el-bot] [success] 整挺好！
 # [SUCCESS] 为绿色
 ```
 

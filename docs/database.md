@@ -2,7 +2,9 @@
 
 > 其实就是数据库，叫数据系统当然是为了对仗。
 
-默认使用 [MongoDB](https://www.mongodb.com/) 数据库。
+默认使用 [MongoDB](https://www.mongodb.com/) 数据库，搭配 [mongoose](https://github.com/Automattic/mongoose)。
+
+> 0.7.0 之后的版本使用 Mongoose，此前的版本仍为原生的 MongoDB。
 
 理由如下：
 
@@ -23,13 +25,13 @@
 
 ```txt
 # .env
-BOT_DB_URI=mongodb+srv://你的用户名:你的密码@你的地址
+BOT_DB_URI=mongodb+srv://你的用户名:你的密码@你的地址/el-bot
 ```
 
 配置数据库配置项
 
 - `enable`: 是否启用
-- `uri`: 你的 MongoDB 链接，注意是 uri（因为我看官方示例都是用这个）
+- `uri`: 你的 MongoDB 链接（包括数据库名称），注意是 uri（因为我看官方示例都是用这个）
 - `analytics`: 是否开启统计（当前只有简单的统计用户触发次数与上一次的触发时间）
 
 ```js
@@ -44,13 +46,19 @@ module.exports = {
 };
 ```
 
-调用数据库，db 与 [MongoClient](https://github.com/mongodb/node-mongodb-native#connect-to-mongodb) 相对应，所有的 API 直接使用官方 API 即可。
+- `ctx.db`: `mongoose.connection`
+
+用法与 Mongoose 一致，更多请参见 [Mongoose 文档](https://mongoosejs.com/docs/guide.html)。
+
+[user.schema.ts](https://github.com/YunYouJun/el-bot/blob/dev/src/db/schemas/user.schema.ts)
 
 ```js
-module.exports = (ctx) => {
-  const { db } = ctx;
-  // db 即 client.db("el-bot")
-};
+import { User } from "../schemas/user.schema.ts";
+export function getUsers() {
+  const users = User.find();
+  return users;
+}
 ```
 
-> [The Official MongoDB Node.js Driver](https://github.com/mongodb/node-mongodb-native)
+- [The Official MongoDB Node.js Driver](https://github.com/mongodb/node-mongodb-native)
+- [Mongoose Docs](https://mongoosejs.com/)
