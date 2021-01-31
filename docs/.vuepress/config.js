@@ -69,6 +69,7 @@ module.exports = {
       "/database",
       "logger",
       "/extend",
+      "/utils",
       "/faq",
       "/ecosystem",
       "/about",
@@ -86,7 +87,10 @@ module.exports = {
       "@vuepress/pwa",
       {
         serviceWorker: true,
-        updatePopup: true,
+        updatePopup: {
+          message: "文档更新啦～",
+          buttonText: "刷新一下",
+        },
       },
     ],
   ],
