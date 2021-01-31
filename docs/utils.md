@@ -6,7 +6,7 @@
 
 ## 内部模式
 
-你可以使用它来记录插件的状态。
+你可以使用它来控制是否进入插件的内部模式。
 
 所谓的内部模式，即当你简单的编写回复逻辑时，机器人不会对当前的群或好友进行判断。
 这就会导致你在 A 群发送搜图，在 B 群发送图片，机器人会在 B 群返回搜图的结果。
@@ -32,7 +32,7 @@ export default async function() {
     }
 
     // 如果当前为内部模式
-    if (innerMode.status) {
+    if (innerMode.getStatus()) {
       // 做搜图操作
       fakeSearchImage();
 

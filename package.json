@@ -24,7 +24,8 @@
     "dev": "yarn docs:dev",
     "build": "yarn docs:build",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "docs:update": "git add -A && git commit -m '📝 update docs' && git push"
   },
   "license": "AGPL-3.0",
   "devDependencies": {
