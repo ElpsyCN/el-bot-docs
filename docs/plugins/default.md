@@ -143,7 +143,7 @@ answer:
     reply: ${data[0]}
 ```
 
-## 转发
+## 转发 forward
 
 譬如：你可以建立一个 `沙雕图转发群`（群成员为你和机器人），监听对象为该群，发送到该群的任何消息将会被转发至其他多个群或好友。
 
@@ -177,7 +177,7 @@ forward:
 
 > 支持集体撤回（误将某条消息转发至多个群时，撤回时同样可以撤回多个群的消息）
 
-## RSS
+## RSS 订阅 rss
 
 > 使用 [rss-parser](https://github.com/rbren/rss-parser) 解析
 
@@ -265,7 +265,7 @@ rss:
 | id      | String | "https://www.yunyoujun.cn/note/make-hexo-theme-yun/" |
 | isoDate | String | 2019-04-27T04:00:00.000Z                             |
 
-## 消息频率限制
+## 消息频率限制 limit
 
 消息发送频率限制插件名为 `limit`，默认开启，默认限制为每 20 秒 10 条。
 
@@ -290,3 +290,24 @@ limit:
     tooltip: 我生气了！
     time: 600
 ```
+
+## 黑名单 blacklist
+
+[blacklist](https://github.com/YunYouJun/el-bot/blob/dev/src/plugins/blacklist/)
+
+<chat-panel title="聊天记录">
+  <chat-message :id="910426929" nickname="云游君">el block qq 114514</chat-message>
+  <chat-message :id="712727945" nickname="小云">[blacklist] 封禁 qq 114514</chat-message>
+  <chat-message :id="910426929" nickname="云游君">el unblock qq 114514</chat-message>
+  <chat-message :id="712727945" nickname="小云">[blacklist] 解封 qq 114514</chat-message>
+</chat-panel>
+
+## 能不能好好说话 nbnhhsh
+
+[nbnhhsh](https://github.com/YunYouJun/el-bot/blob/dev/src/plugins/nbnhhsh/)
+
+<chat-panel title="聊天记录">
+  <chat-message :id="910426929" nickname="云游君">el nbnhhsh yysy qs</chat-message>
+  <chat-message :id="712727945" nickname="小云">yysy 的含义：有一说一</chat-message>
+  <chat-message :id="712727945" nickname="小云">qs 的含义：确实，去死，起诉，劝删，潜水，拳师，骑士，气死，茄神，缺神，歧视，券商，水银</chat-message>
+</chat-panel>

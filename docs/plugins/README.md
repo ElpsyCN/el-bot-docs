@@ -24,6 +24,14 @@ mirai-ts 也提供了许多字符匹配、彩色日志等辅助小工具。
 - `community`: 社区插件 `el-bot-plugin-xxx`（如果您放在个人仓库中并自行发布为 npm 包，请遵循该命名规范）
 - `custom`: 自定义插件 `./xxx/xxx`
 
+## 插件列表
+
+<chat-panel title="聊天记录">
+  <chat-message :id="910426929" nickname="云游君">el plugins</chat-message>
+  <chat-message :id="712727945" nickname="小云">默认插件:<br/>- answer@0.1.0: 自动应答<br/>- blacklist@0.0.1: 黑名单<br/>- forward@0.0.2: 消息转发<br/>- limit@0.1.0: 限制消息频率<br/>- memo@0.0.1: 备忘录<br/>- nbnhhsh@0.0.2: 能不能好好说话？<br/>- qrcode@0.0.2: 二维码生成器<br/>- rss@0.0.2: 订阅 RSS 信息<br/>- report@0.0.1: 消息报告<br/>- search@0.0.5: 引擎搜索<br/>- search-image@0.1.0: 以图搜图<br/>- teach@0.1.0: 问答学习（教小云做事）<br/>- workflow@0.0.1: 工作流 <br/>官方插件:<br/>- niubi@0.1.2: 夸人牛逼<br/>- setu@0.0.12: 发点色图 <br/>无社区插件<br/>自定义插件:<br/>- ./bot/plugins/test@未知: 未知<br/>- ./bot/plugins/cbd@0.0.1: 老师来了吗？
+  </chat-message>
+</chat-panel>
+
 ## 如何编写
 
 我将示范如何新建一个名为 `test` 的自定义插件。
@@ -173,6 +181,12 @@ import { Bot } from "el-bot";
 const bot = new Bot();
 bot.use(yourPlugin);
 // yourPlugin 应当是一个默认导出的函数或带有 "install" 属性的对象
+```
+
+如果你希望它出现在插件列表中，你可以使用 `bot.plugin(name: string, plugin: Plugin, ...options: any[])` 来注册它。
+
+```js
+bot.plugin("奇怪的插件", fn, options);
 ```
 
 ### 默认插件
