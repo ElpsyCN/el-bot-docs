@@ -72,6 +72,9 @@ npm config set registry https://registry.npm.taobao.org
 
 目录结构请参考 [el-bot-template](https://github.com/ElpsyCN/el-bot-template) ![GitHub package.json version](https://img.shields.io/github/package-json/v/elpsycn/el-bot-template) 或直接使用它生成你的机器人。
 
+> 0.8.0 新增：`setting` 可以是 mirai-api-http `setting.yml` 的路径
+> 如 `setting: './mcl/config/net.mamoe.mirai-api-http/setting.yml'`
+
 ```js
 // index.js
 const Bot = require("el-bot");
