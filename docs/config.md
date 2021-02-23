@@ -129,11 +129,12 @@ match:
       pattern: 来点(\S*)笑话
 ```
 
-编写插件时，可以通过导入 `@utils/message` 的方式快速使用。
+编写插件时，可以通过导入 `mirai-ts` 的方式快速使用。
 
 ```js
-import { is, includes, re, match } from "@utils/message";
+import { check } from "mirai-ts";
 
+const { is, includes, re, match } = check;
 config.match.forEach((obj) => {
   if (match(str, obj)) {
     msg.reply("xxxxx");
