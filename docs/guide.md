@@ -87,7 +87,7 @@ const bot = new Bot({
     authKey: "el-psy-congroo",
     enableWebsocket: false,
   },
-  // config: ...
+  // bot: ...
 });
 bot.start();
 ```
@@ -125,7 +125,8 @@ module.exports = {
   setting: {
     enableWebsocket: true,
   },
-  config: {
+  // 0.8.0 后 config 字段被重命名为 bot
+  bot: {
     plugins: utils.config.parse(resolve(__dirname, "./index.yml")),
   },
 };
