@@ -38,7 +38,7 @@ el bot
 
 你需要将你的配置放在 git 仓库中，并设置 Webhooks。
 
-> https://github.com/用户名/仓库/settings/hooks
+> `https://github.com/用户名/仓库/settings/hooks`
 
 - `Payload URL`: 填写你的服务器地址加端口号加 `/webhook`（默认 7777）
   > 例如：`http://1.2.3.4:7777/webhook`
@@ -80,7 +80,7 @@ Content-Type: application/json
 
 或
 
-```txt
+```bash
 GET http://你的服务器IP地址:7777?type=is-teacher-here&isHere=1
 ```
 

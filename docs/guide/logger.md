@@ -12,7 +12,7 @@ module.exports = (ctx) => {
 };
 ```
 
-```sh
+```bash
 # 输出消息
 [el-bot] [success] 整挺好！
 # [SUCCESS] 为绿色
@@ -24,3 +24,8 @@ module.exports = (ctx) => {
 - warning: 警告信息
 - error: 错误信息
 - info: 提示信息
+- debug: Debug 信息
+
+## Todo
+
+日志分级显示

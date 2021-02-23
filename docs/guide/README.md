@@ -81,6 +81,7 @@ const Bot = require("el-bot");
 
 const bot = new Bot({
   qq: 114514,
+  // setting: './mcl/config/net.mamoe.mirai-api-http/setting.yml',
   setting: {
     host: "localhost",
     port: 4859,
@@ -108,7 +109,7 @@ So easy! Right?
 
 譬如：
 
-```txt
+```bash
 .
 └── el
     ├── index.js

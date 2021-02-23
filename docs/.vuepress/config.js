@@ -35,7 +35,9 @@ module.exports = {
     smoothScroll: true,
     collapsable: false,
     nav: [
-      { text: "指南", link: "/guide" },
+      { text: "指南", link: "/guide/" },
+      { text: "API", link: "/api/" },
+      { text: "插件", link: "/plugins/" },
       {
         text: "生态",
         ariaLabel: "Ecosystem",
@@ -57,23 +59,22 @@ module.exports = {
         ],
       },
     ],
-    sidebar: [
-      "/guide",
-      "/cli",
-      "/config",
-      {
-        title: "插件系统",
-        path: "/plugins",
-        children: ["/plugins/", "/plugins/default"],
-      },
-      "/database",
-      "logger",
-      "/extend",
-      "/utils",
-      "/faq",
-      "/ecosystem",
-      "/about",
-    ],
+    sidebar: {
+      "/guide/": [
+        "",
+        "cli",
+        "config",
+        "database",
+        "logger",
+        "extend",
+        "faq",
+        "about",
+      ],
+      "/api/": ["", "status", "utils"],
+      "/plugins/": ["", "default"],
+      // fallback
+      "/": [],
+    },
   },
   plugins: [
     "@vuepress/back-to-top",
